@@ -1,0 +1,37 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.menu {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.menu-button {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0 10px;
+  }
+
+  .logo img {
+    height: 30px;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+}
