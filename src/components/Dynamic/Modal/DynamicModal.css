@@ -1,0 +1,17 @@
+
+.dynamic-modal .ant-modal {
+    width: 90% !important; /* Largura padrão para telas pequenas */
+    max-width: 600px; /* Largura máxima */
+}
+
+@media (min-width: 768px) {
+    .dynamic-modal .ant-modal {
+        width: 100% !important; /* Largura para telas médias */
+    }
+}
+
+@media (min-width: 1200px) {
+    .dynamic-modal .ant-modal {
+        width: 100% !important; /* Largura para telas grandes */
+    }
+}

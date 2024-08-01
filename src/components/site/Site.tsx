@@ -1,18 +1,18 @@
-import React from 'react';
+
 import { Layout } from 'antd';
-import AppHeader from './components/Header';
-import AppFooter from './components/Footer';
-import CarouselSection from './components/CarouselSection';
-import LoginSection from './components/LoginSection';
-import ServicesSection from './components/ServicesSection';
-import TestimonialsSection from './components/TestimonialsSection';
-import ContactSection from './components/ContactSection';
-import FeedbackSection from './components/FeedbackSection';
-import './App.css';
+import AppHeader from './Header';
+import AppFooter from './Footer';
+import CarouselSection from './CarouselSection';
+
+import ServicesSection from './ServicesSection';
+import TestimonialsSection from './TestimonialsSection';
+import ContactSection from './ContactSection';
+
+import './site.css';
 
 const { Content } = Layout;
 
-function App() {
+function Site() {
   return (
     <Layout className="layout">
       <AppHeader />
@@ -21,7 +21,7 @@ function App() {
           <CarouselSection />
         </div>
         <div id="login" className="site-layout-content">
-          <LoginSection />
+
         </div>
         <div id="services" className="site-layout-content">
           <ServicesSection />
@@ -30,7 +30,7 @@ function App() {
           <TestimonialsSection />
         </div>
         <div id="feedback" className="site-layout-content">
-          <FeedbackSection />
+  
         </div>
         <div id="contact" className="site-layout-content">
           <ContactSection />
@@ -41,4 +41,4 @@ function App() {
   );
 }
 
-export default App;
+export default Site;
