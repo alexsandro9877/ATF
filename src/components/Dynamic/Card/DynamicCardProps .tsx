@@ -13,6 +13,7 @@ interface DynamicCardProps {
 
 const DynamicCard: React.FC<DynamicCardProps> = ({ title, content, actionsButton = [], extra, style }) => (
     <Card
+    
         title={title}
         extra={extra}
         style={{ borderRadius: '10px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)', ...style }}

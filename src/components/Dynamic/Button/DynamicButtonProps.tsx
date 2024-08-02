@@ -5,7 +5,7 @@ import './DynamicButton.css';
 interface DynamicButtonProps {
   title: string;
   icon?: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
   disabled?: boolean;
   name?: string;
   danger?: boolean;
@@ -22,7 +22,8 @@ const DynamicButton: React.FC<DynamicButtonProps> = ({ danger, disabled, icon, o
     >
       <Button
         type="text"
-        shape="circle"
+        
+        shape="default"
         icon={icon}
         style={{ display: 'none', minWidth: 'fit-content', marginRight: 8 }}
         className="button-icon"

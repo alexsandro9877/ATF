@@ -7,6 +7,11 @@ import LoginSection from '../components/site/LoginSection';
 //import Site from '../components/site/Site';
 import AppManut from '../components/manut/app';
 import FeedbackSectionManut from '../components/manut/FeedbackSection';
+import FeedbackSection from '../components/site/FeedbackSection';
+import Site from '../components/site/Site';
+import FuncionalidadesForm from '../components/manut/FuncionalidadesForm';
+import ServicoForm from '../components/manut/ServicoForm';
+import CarrosselForm from '../components/manut/CarrosselForm';
 
 
 
@@ -17,6 +22,11 @@ const router = createBrowserRouter([
     children: [
       //Principal
       {        path: "FeedbackSectionManut", element: (<PrivateRoute tela='/FeedbackSectionManut' ><FeedbackSectionManut /></PrivateRoute>),},
+      {        path: "CarrosselForm", element: (<PrivateRoute tela='/CarrosselForm' ><CarrosselForm /></PrivateRoute>),},
+      {        path: "ServicoForm", element: (<PrivateRoute tela='/ServicoForm' ><ServicoForm /></PrivateRoute>),},
+      {        path: "FuncionalidadesForm", element: (<PrivateRoute tela='/FuncionalidadesForm' ><FuncionalidadesForm /></PrivateRoute>),},
+      {        path: "FeedbackSection", element: (<PrivateRoute tela='/FeedbackSection' ><FeedbackSection /></PrivateRoute>),},
+      {        path: "site", element: (<PrivateRoute tela='/site' ><Site /></PrivateRoute>),},
          
     ],
     }, //Rota publica

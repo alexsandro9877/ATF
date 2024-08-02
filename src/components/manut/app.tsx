@@ -4,7 +4,11 @@ import {
   ShoppingOutlined, 
   //UserOutlined, 
   SearchOutlined,
-  SettingOutlined, LogoutOutlined, 
+  SettingOutlined, LogoutOutlined,
+  UserOutlined,
+  QuestionOutlined,
+  ContactsOutlined,
+  ContainerOutlined, 
   //QuestionOutlined,
  // ContactsOutlined, ContainerOutlined
 } from '@ant-design/icons';
@@ -20,12 +24,12 @@ const { Header, Content, Footer } = Layout;
 
 const menuItems = [
   { label: 'FeedbackSectionManut', key: '/FeedbackSectionManut', icon: <ShoppingOutlined /> },
-  // { label: 'Mercado', key: '/userMeli', icon: <ShoppingOutlined /> },
-  // { label: 'Usuário', key: '/user', icon: <UserOutlined /> },
-  // { label: 'Cliente', key: '/customer', icon: <ContainerOutlined /> },
-  // { label: 'Conta', key: '/account', icon: <ContactsOutlined /> },
-  // { label: 'Teste', key: '/teste', icon: <QuestionOutlined /> },
-  // { label: 'Configuração', key: '/settings', icon: <SettingOutlined /> },
+   { label: 'FeedbackSection', key: '/FeedbackSection', icon: <ShoppingOutlined /> },
+  { label: 'Site', key: '/site', icon: <UserOutlined /> },
+  { label: 'FuncionalidadesForm', key: '/FuncionalidadesForm', icon: <ContainerOutlined /> },
+  { label: 'ServicoForm', key: '/ServicoForm', icon: <ContactsOutlined /> },
+  { label: 'CarrosselForm', key: '/CarrosselForm', icon: <QuestionOutlined /> },
+//  { label: 'Configuração', key: '/settings', icon: <SettingOutlined /> },
   // { label: 'Sem mapear', key: '/map', icon: <QuestionOutlined /> },
   // { label: 'Dashboard', key: '/dashboard', icon: <QuestionOutlined /> },
   // { label: 'Teste 404', key: '/404', icon: <QuestionOutlined /> },

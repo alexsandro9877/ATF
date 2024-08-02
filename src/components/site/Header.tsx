@@ -1,7 +1,7 @@
 import  { useState } from 'react';
 import { Layout, Menu, Drawer, Button } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
-import logo from '../assets/logo.png';
+import logo from '../../assets/logo.png';
 import './Header.css';
 
 const { Header } = Layout;
