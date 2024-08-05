@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Form, Button, Space, Card } from 'antd';
 interface IFormularioDinamico {
     name: string;

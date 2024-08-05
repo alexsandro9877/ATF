@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import RegistrationForm from './RegistrationForm';
 
 
 const LoginSection = () => {
   const [isRegistering, setIsRegistering] = useState(false);
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-expect-error
   const onFinish = (values) => {
     console.log('Received values of form: ', values);
     // Handle login
   };
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-expect-error
   const handleRegister = (values) => {
     console.log('Received registration values: ', values);
     // Handle registration

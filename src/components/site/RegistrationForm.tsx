@@ -1,7 +1,10 @@
-import React from 'react';
-import { Form, Input, Button } from 'antd';
 
+import { Form, Input, Button } from 'antd';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-expect-error
 const RegistrationForm = ({ onRegister }) => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-expect-error
   const onFinish = (values) => {
     console.log('Received values of form: ', values);
     onRegister(values);

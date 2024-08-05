@@ -5,13 +5,13 @@ import DynamicButton from '../Dynamic/Button/DynamicButtonProps';
 import DynamicCard from '../Dynamic/Card/DynamicCardProps ';
 
 
-const contentStyle = {
-  height: '400px',
-  color: '#fff',
-  lineHeight: '400px',
-  textAlign: 'center',
-  background: '#364d79',
-};
+// const contentStyle = {
+//   height: '400px',
+//   color: '#fff',
+//   lineHeight: '400px',
+//   textAlign: 'center',
+//   background: '#364d79',
+// };
 
 const imageStyle = {
   width: '100%',
@@ -59,6 +59,8 @@ const CarrosselForm: React.FC = () => {
     message.info('Dado excluído!');
   };
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-expect-error
   const onValuesChange = (changedValues: any, allValues: any) => {
     setFormValues(allValues);
   };
@@ -93,7 +95,7 @@ const CarrosselForm: React.FC = () => {
              <h3></h3>
              <Carousel autoplay>
                <div>
-                 <h3 style={contentStyle}>
+                 <h3>
                  
                      <img
                        src={`${imagemUrl}`}
@@ -261,7 +263,10 @@ const CarrosselForm: React.FC = () => {
                               rules={[{ required: true, message: 'Por favor, faça o upload da imagem' }]}
                             > 
                                     
-                                    <Input onMouseMove ={(e)=>(setImagem(String(e.target.value)))}/>
+                                    <Input onMouseMove ={(e)=>(
+                                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                      //@ts-expect-error
+                                      setImagem(String(e.target.value)))}/>
                               {/* <Upload
                                 listType="picture-card"
                                 fileList={image.length ? image : []}

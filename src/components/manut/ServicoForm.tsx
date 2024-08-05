@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Upload, Row, Col, message } from 'antd';
+import { Form, Input, Button, Upload, Row, Col } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
 const ServicoForm: React.FC = () => {
@@ -10,6 +10,7 @@ const ServicoForm: React.FC = () => {
     console.log('Serviço values: ', values);
   };
 
+  //@ts-expect-error
   const onValuesChange = (changedValues: any, allValues: any) => {
     setFormValues(allValues);
   };

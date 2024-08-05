@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Upload, DatePicker, Row, Col, message } from 'antd';
+import { Form, Input, Button, Upload, DatePicker, Row, Col } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
 const FuncionalidadesForm: React.FC = () => {
   const [formValues, setFormValues] = useState<any>({});
   const [fileList, setFileList] = useState<any[]>([]);
 
-  const onFinish = (values: any) => {
+  const onFinish = (values: []) => {
     console.log('Funcionalidades values: ', values);
   };
 
-  const onValuesChange = (changedValues: any, allValues: any) => {
+  const onValuesChange = (_changedValues: any, allValues: any) => {
     setFormValues(allValues);
   };
 

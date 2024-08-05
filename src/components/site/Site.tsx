@@ -2,7 +2,7 @@
 import { Layout } from 'antd';
 import AppHeader from './Header';
 import AppFooter from './Footer';
-import CarouselSection from './CarouselSection';
+// import CarouselSection from './CarouselSection';
 
 import ServicesSection from './ServicesSection';
 import TestimonialsSection from './TestimonialsSection';
@@ -18,7 +18,7 @@ function Site() {
       <AppHeader />
       <Content style={{ padding: '0 50px', marginTop: '20px' }}>
         <div id="home">
-          <CarouselSection />
+          {/* <CarouselSection /> */}
         </div>
         <div id="login" className="site-layout-content">
 
