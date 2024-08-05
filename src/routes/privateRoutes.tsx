@@ -8,9 +8,8 @@ interface PrivateRouteProps {
   tela?: string;
 }
 
-
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ children, tela, role }) => {
-  console.log(tela +" " + role)
+  console.log(tela + '' + role)
   // const { statusAutenticacao,userAut } = AuthUserStore();
   // if (!statusAutenticacao) {
   //   return <Navigate to="/login" />;
