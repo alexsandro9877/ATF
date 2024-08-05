@@ -5,6 +5,7 @@ import DynamicButton from '../Dynamic/Button/DynamicButtonProps';
 
 import { CaretLeftOutlined, CheckOutlined, CloseOutlined, DeleteOutlined, FolderViewOutlined, StarOutlined } from '@ant-design/icons';
 import DynamicCard from '../Dynamic/Card/DynamicCardProps ';
+import DynamicForm from '../Dynamic/Form';
 
 interface FeedbackSection {
   id: string;
@@ -265,6 +266,7 @@ const FeedbackSectionManut = () => {
                     content={
                       <Row gutter={[16, 16]} justify="space-between">
                         <Col flex="auto">
+                      
                           <Form
                             initialValues={item}
                             layout="horizontal"

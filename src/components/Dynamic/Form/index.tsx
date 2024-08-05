@@ -9,10 +9,16 @@ interface IFormularioDinamico {
 
 const { Item: FormItem } = Form;
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                //@ts-expect-error
-const StandardForm = ({ onFinish, formItems }) => (
+   //@ts-expect-error
+const DynamicForm = ({ onFinish, formItems,onValuesChange,form ,initialValues }) => (
   <Card title="Standard Form" style={{ maxWidth: 600, margin: 'auto' }}>
-    <Form onFinish={onFinish} layout="vertical">
+    <Form 
+    onFinish={onFinish} 
+    layout="vertical"
+    initialValues={initialValues}
+    onValuesChange={onValuesChange} 
+    form={form}
+    >
       {formItems.map(({ name, label, rules, component }:IFormularioDinamico) => (
         <FormItem key={name} name={name} label={label} rules={rules}>
           {component}
@@ -32,4 +38,4 @@ const StandardForm = ({ onFinish, formItems }) => (
   </Card>
 );
 
-export default StandardForm;
+export default DynamicForm;

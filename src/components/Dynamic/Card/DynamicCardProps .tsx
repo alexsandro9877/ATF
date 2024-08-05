@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Button, Tooltip, Space } from 'antd';
+import { action } from 'mobx';
 //import { EllipsisOutlined } from '@ant-design/icons';
 // import './DynamicCard.css';
 
@@ -9,11 +10,12 @@ interface DynamicCardProps {
     actionsButton?: { title: string; icon: React.ReactNode; onClick: () => void; disabled?: boolean }[];
     extra?: React.ReactNode;
     style?: React.CSSProperties;
+    onClick?: () => void;
 }
 
-const DynamicCard: React.FC<DynamicCardProps> = ({ title, content, actionsButton = [], extra, style }) => (
+const DynamicCard: React.FC<DynamicCardProps> = ({ actions, title, content, actionsButton = [], extra, style }) => (
     <Card
-    
+        actions={actions}
         title={title}
         extra={extra}
         style={{ borderRadius: '10px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)', ...style }}
