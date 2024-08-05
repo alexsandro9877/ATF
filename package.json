@@ -1,13 +1,11 @@
 {
-    "name": "my-app",
-    "version": "1.0.0",
-    "scripts": {
-      "dev": "concurrently \"npm run dev --prefix frontend\" \"npm run dev --prefix backend\"",
-      "build": "npm run build --prefix frontend"
-    },
-    "devDependencies": {
-      "concurrently": "^7.0.0"
-    }
-
+  "name": "my-app",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix frontend\" \"npm run dev --prefix backend\"",
+    "build": "npm run build --prefix frontend && npm run build --prefix backend"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0"
   }
-
+}
