@@ -2,17 +2,17 @@
 import { Carousel } from 'antd';
 
 
-const contentStyle = {
-  height: '400px',
-  color: '#fff',
-  lineHeight: '400px',
-  textAlign: 'center',
-  background: '#364d79',
-};
+// const contentStyle = {
+//   height: '400px',
+//   color: '#fff',
+//   lineHeight: '400px',
+//   textAlign: 'center',
+//   background: '#364d79',
+// };
 
 const CarouselSection = () => (
   <Carousel autoplay>
-    <div>
+    {/* <div>
       <h3 style={contentStyle}>High-Quality Electrical Services</h3>
     </div>
     <div>
@@ -23,7 +23,7 @@ const CarouselSection = () => (
     </div>
     <div>
       <h3 style={contentStyle}>Contact Us Today!</h3>
-    </div>
+    </div> */}
   </Carousel>
 );
 

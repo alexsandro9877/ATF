@@ -1,9 +1,11 @@
-import React from 'react';
+
 import { Form, Input, Button, message } from 'antd';
 
 const ContactSection = () => {
   const [form] = Form.useForm();
 
+   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-expect-error
   const handleSubmit = (values) => {
     message.success('Your message has been sent!');
     console.log('Form Values:', values);

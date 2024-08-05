@@ -5,7 +5,7 @@ import DynamicButton from '../Dynamic/Button/DynamicButtonProps';
 
 import { CaretLeftOutlined, CheckOutlined, CloseOutlined, DeleteOutlined, FolderViewOutlined, StarOutlined } from '@ant-design/icons';
 import DynamicCard from '../Dynamic/Card/DynamicCardProps ';
-import DynamicForm from '../Dynamic/Form';
+
 
 interface FeedbackSection {
   id: string;

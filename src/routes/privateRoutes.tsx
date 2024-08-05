@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Navigate } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 
 
 interface PrivateRouteProps {
@@ -9,6 +9,8 @@ interface PrivateRouteProps {
 }
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ children, tela, role }) => {
+  console.log(tela +''+ role);
+
   // const { statusAutenticacao,userAut } = AuthUserStore();
   // if (!statusAutenticacao) {
   //   return <Navigate to="/login" />;

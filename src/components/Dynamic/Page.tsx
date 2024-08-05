@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Form, Input, Button, Select, Space } from 'antd';
 
 const { Option } = Select;
@@ -17,7 +17,7 @@ const Modelo = () => {
     }
   };
 
-  const handleRemoveImage = (image) => {
+  const handleRemoveImage = (image: string) => {
     setImages(images.filter(img => img !== image));
   };
 
@@ -28,7 +28,7 @@ const Modelo = () => {
     }
   };
 
-  const handleFinish = (values) => {
+  const handleFinish = (values:[]) => {
     const formData = {
       ...values,
       imagem: images,

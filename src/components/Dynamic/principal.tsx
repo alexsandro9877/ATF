@@ -4,7 +4,7 @@ import DynamicCard from '../Dynamic/Card/DynamicCardProps '
 import { DownloadOutlined, EllipsisOutlined, PlusOutlined, UserOutlined } from '@ant-design/icons'
 import DynamicButton from '../Dynamic/Button/DynamicButtonProps'
 import DynamicModal from '../Dynamic/Modal/DynamicModalProps'
-import UserCreate from '../User/userCreate'
+//import UserCreate from '../User/userCreate'
 import { useEffect, useState } from 'react'
 import Teste from './teste'
 
@@ -32,7 +32,7 @@ const Principal = () => {
       {
           key: "1",
           label: (
-              <span onClick={() => showModal('Adicionar Usuário', <UserCreate/>)}>
+              <span onClick={() => showModal('Adicionar Usuário', <></>)}>
                   <PlusOutlined /> Adicionar
               </span>
           ),

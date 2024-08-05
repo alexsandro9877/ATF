@@ -1,5 +1,5 @@
-import React from 'react';
-import { Carousel, Card, Space, Avatar, Divider, Descriptions, Tag, Rate } from 'antd';
+
+import { Carousel, Card,  Avatar, Divider, Descriptions, Tag, Rate } from 'antd';
 
 interface FeedbackSection {
   id: string;
@@ -59,12 +59,13 @@ const testimonials: FeedbackSection[] = [
   }
 ];
 
-const IconText = ({ icon, text }: { icon: React.ReactNode; text?: number }) => (
-  <Space>
-    {icon}
-    {text}
-  </Space>
-);
+
+// const IconText = ({ icon, text }: { icon: React.ReactNode; text?: number }) => (
+//   <Space>
+//     {icon}
+//     {text}
+//   </Space>
+// );
 
 const TestimonialsSection = () => (
   <div className="testimonials-section">
@@ -80,7 +81,10 @@ const TestimonialsSection = () => (
          { breakpoint: 768, settings: { slidesToShow: 1, slidesToScroll: 1 } },
       ]}
     >
-      {testimonials.map((item, index) => (
+      
+      {
+        
+      testimonials.map((item) => (
         <div key={item.id}>
           <Card bordered={false} style={{ margin: '0 10px', padding: '10px', borderRadius: '10px', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
             <Meta
