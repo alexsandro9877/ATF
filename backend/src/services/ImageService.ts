@@ -30,7 +30,7 @@ export class ImageService {
 
       return image;
     } catch (error) {
-      throw new Error(`Erro ao fazer upload da imagem: ${error.message}`);
+      throw new Error(`Erro ao fazer upload da imagem: ${error}`);
     }
   }
 
@@ -42,7 +42,7 @@ export class ImageService {
       });
       return image;
     } catch (error) {
-      throw new Error(`Erro ao buscar imagem: ${error.message}`);
+      throw new Error(`Erro ao buscar imagem: ${error}`);
     }
   }
 

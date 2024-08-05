@@ -40,7 +40,7 @@ const prisma = new PrismaClient();
 
       reply.send({id: envio.id, mensage: 'Imagem salva com sucesso!'});
     } catch (error) {
-      reply.status(500).send({ error: 'Erro ao salvar a imagem no banco de dados.', message: error.message });
+      reply.status(500).send({ error: 'Erro ao salvar a imagem no banco de dados.', message: error });
     }
   }
 }

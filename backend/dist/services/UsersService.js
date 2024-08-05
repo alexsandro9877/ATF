@@ -1,31 +1,10 @@
-import { PrismaClient, User } from '@prisma/client';
-
-const prisma = new PrismaClient();
-
-export interface CreateUsersProps {
-    name: string;
-    email: string;
-    phone: string;
-    password: string;
-    picture: string;
-  status: boolean;
-  azp:string;
-    roles: string[];
-    permissions: string[];
-    visibleRoutes: string[];
-    theme: {
-        colorPrimary: string;
-        colorInfo: string;
-        colorTextBase: string;
-        colorBgBase: string;
-        colorTextTertiary: string;
-        colorTextSecondary: string;
-    };
-    accountId: string;
-}
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ListUsersAccountService = exports.GetUserByEmailService = exports.DeleteUsersService = exports.GetUserByIdService = exports.ListUsersService = exports.CreateUsersService = void 0;
+const client_1 = require("@prisma/client");
+const prisma = new client_1.PrismaClient();
 class CreateUsersService {
-    async execute(userData: CreateUsersProps): Promise<User> {
+    async execute(userData) {
         try {
             const createdUser = await prisma.user.create({
                 data: {
@@ -35,7 +14,7 @@ class CreateUsersService {
                     password: userData.password,
                     status: userData.status,
                     picture: userData.picture,
-                    azp:userData.azp,
+                    azp: userData.azp,
                     roles: {
                         set: userData.roles,
                     },
@@ -58,27 +37,20 @@ class CreateUsersService {
                     // account : {
                     //     connect: { id: userData.accountId }
                     // },
-                    accountId : userData.accountId
-
-                   
+                    accountId: userData.accountId
                 },
                 include: {
                     theme: true,
-                            
                 },
             });
-
             return createdUser;
-        } catch (error) {
+        }
+        catch (error) {
             throw new Error(`Erro ao criar usuário: ${error}`);
         }
     }
 }
-
-interface GetUserByIdProps {
-    id: string;
-}
-
+exports.CreateUsersService = CreateUsersService;
 class ListUsersService {
     async execute() {
         try {
@@ -88,91 +60,86 @@ class ListUsersService {
                 },
             });
             return users;
-        } catch (error) {
+        }
+        catch (error) {
             throw new Error("Erro ao listar os usuários.");
         }
     }
 }
-
+exports.ListUsersService = ListUsersService;
 class ListUsersAccountService {
-    async execute({ id }: GetUserByIdProps) {
+    async execute({ id }) {
         try {
             const users = await prisma.user.findMany({
-                where : {accountId : id},
+                where: { accountId: id },
                 include: {
                     theme: true
                 },
             });
             return users;
-        } catch (error) {
+        }
+        catch (error) {
             throw new Error("Erro ao listar os usuários.");
         }
     }
 }
-
+exports.ListUsersAccountService = ListUsersAccountService;
 class GetUserByIdService {
-    async execute({ id }: GetUserByIdProps) {
+    async execute({ id }) {
         try {
             const user = await prisma.user.findUnique({
                 where: { id },
                 include: {
-                 
                     theme: true,
                 },
             });
-
             if (!user) {
                 throw new Error("Usuário não encontrado.");
             }
-
             return user;
-        } catch (error) {
+        }
+        catch (error) {
             throw new Error(`Erro ao buscar usuário: ${error}`);
         }
     }
 }
-
+exports.GetUserByIdService = GetUserByIdService;
 class GetUserByEmailService {
-    async execute(email: string) {
+    async execute(email) {
         if (!email) {
             throw new Error("azp não fornecido.");
         }
-
         try {
             const user = await prisma.user.findFirst({
                 where: {
-                email:email    
+                    email: email
                 }
             });
-
             if (!user) {
                 throw new Error("Usuário não encontrado para o azp fornecido.");
             }
-
             return user;
-        } catch (error) {
+        }
+        catch (error) {
             throw new Error(`Erro ao buscar usuário: ${error}`);
         }
     }
 }
-
-
+exports.GetUserByEmailService = GetUserByEmailService;
 class DeleteUsersService {
-    async execute({ id }: GetUserByIdProps) {
+    async execute({ id }) {
         try {
             const user = await prisma.user.delete({
-               where: { id },
+                where: { id },
                 include: {
                     theme: true,
                 },
             });
-
             return { message: `${id} deletado com sucesso!` };
-        } catch (error) {
+        }
+        catch (error) {
             throw new Error(`Erro ao deletar usuário: ${error}`);
         }
     }
 }
-
-export { CreateUsersService, ListUsersService, GetUserByIdService, DeleteUsersService,GetUserByEmailService,ListUsersAccountService };
-
+exports.DeleteUsersService = DeleteUsersService;

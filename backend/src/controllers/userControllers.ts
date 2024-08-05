@@ -53,7 +53,7 @@ class CreateUsersController {
         
             reply.send(user);
         } catch (error) {
-            reply.status(400).send({ message: error.message });
+            reply.status(400).send({ message: error });
         }
     }
 }
@@ -68,7 +68,7 @@ class DeleteUsersController {
             reply.send(result);
         } catch (error) {
             //@ts-ignore
-            reply.status(400).send({ message: error.message });
+            reply.status(400).send({ message: error });
         }
     }
 }
@@ -83,7 +83,7 @@ class GetUserByIdController {
             reply.send(user);
         } catch (error) {
             //@ts-ignore
-            reply.status(400).send({ message: error.message });
+            reply.status(400).send({ message: error });
         }
     }
 }
@@ -97,7 +97,7 @@ class GetUserByEmailController {
             const user = await getUserByEmailService.execute(email);
             reply.status(200).send(user);
         } catch (error) {
-            reply.status(400).send({ message: error.message });
+            reply.status(400).send({ message: error });
         }
     }
 }
@@ -110,7 +110,7 @@ class ListUsersAccountController {
             const users = await listUsersAccountService.execute({id});
             reply.send(users);
         } catch (error) {
-            reply.status(500).send({ message: error.message });
+            reply.status(500).send({ message: error });
         }
     }
 }
@@ -123,7 +123,7 @@ class ListUsersController {
             const users = await listUsersService.execute();
             reply.send(users);
         } catch (error) {
-            reply.status(500).send({ message: error.message });
+            reply.status(500).send({ message: error });
         }
     }
 }
