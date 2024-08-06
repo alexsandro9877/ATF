@@ -1,155 +1,45 @@
-[0806/083434.928:INFO:CONSOLE(133)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v3/yP/r/xNFUZf1P7v-.js?_nc_x=Ij3Wp8lg5Kz (133)
-[0806/083437.816:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Feature xr-spatial-tracking's parameters are ignored.", source:  (0)
-[0806/083437.817:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'attribution-reporting'.", source:  (0)
-[0806/083437.817:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'battery'.", source:  (0)
-[0806/083437.817:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'compute-pressure'.", source:  (0)
-[0806/083437.817:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.", source:  (0)
-[0806/083437.817:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-issuance'.", source:  (0)
-[0806/083437.817:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'shared-storage'.", source:  (0)
-[0806/083437.817:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'.", source:  (0)
-[0806/083437.817:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-redemption'.", source:  (0)
-[0806/083437.817:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb-unrestricted'.", source:  (0)
-[0806/083437.817:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'unload'.", source:  (0)
-[0806/083437.818:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'window-management'.", source:  (0)
-[0806/083444.357:INFO:CONSOLE(150)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v3/y5/r/lLcrgeV-4vv.js?_nc_x=Ij3Wp8lg5Kz (150)
-[0806/083525.272:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.276:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.276:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.277:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.277:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.277:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.278:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.278:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.278:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.278:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.278:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.278:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.279:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.279:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.279:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.279:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.280:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.280:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083525.280:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.041:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.041:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.042:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.042:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.042:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.043:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.043:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.043:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.044:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.044:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.044:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.045:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.045:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.045:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.045:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.045:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.046:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.046:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.046:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.046:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.047:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.047:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.047:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083529.047:INFO:CONSOLE(396)] "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'participants')", source: https://static.whatsapp.net/rsrc.php/v3idJU4/y2/l/rt/LBqCzlYKSp6.js?_nc_x=Ij3Wp8lg5Kz (396)
-[0806/083601.575:INFO:CONSOLE(150)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v3/y5/r/lLcrgeV-4vv.js?_nc_x=Ij3Wp8lg5Kz (150)
-[0806/083731.524:INFO:CONSOLE(150)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v3/y5/r/lLcrgeV-4vv.js?_nc_x=Ij3Wp8lg5Kz (150)
-[0806/083838.123:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
-[0806/083838.124:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
-[0806/083838.124:ERROR:disk_cache.cc(205)] Unable to create cache
-[0806/083838.125:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
-[0806/083838.125:ERROR:disk_cache.cc(205)] Unable to create cache
-[0806/083838.125:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
-[0806/083840.139:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
-[0806/083840.139:ERROR:disk_cache.cc(205)] Unable to create cache
-[0806/083840.401:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
-[0806/083840.401:ERROR:disk_cache.cc(205)] Unable to create cache
-[0806/083840.401:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
-[0806/083840.401:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
-[0806/083840.401:ERROR:disk_cache.cc(205)] Unable to create cache
-[0806/083840.401:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
-[0806/083840.500:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Feature xr-spatial-tracking's parameters are ignored.", source:  (0)
-[0806/083840.500:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'attribution-reporting'.", source:  (0)
-[0806/083840.500:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'battery'.", source:  (0)
-[0806/083840.500:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'compute-pressure'.", source:  (0)
-[0806/083840.500:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.", source:  (0)
-[0806/083840.500:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-issuance'.", source:  (0)
-[0806/083840.501:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'shared-storage'.", source:  (0)
-[0806/083840.501:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'.", source:  (0)
-[0806/083840.501:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-redemption'.", source:  (0)
-[0806/083840.501:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb-unrestricted'.", source:  (0)
-[0806/083840.501:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'unload'.", source:  (0)
-[0806/083840.501:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'window-management'.", source:  (0)
-[0806/083841.135:ERROR:service_worker_storage.cc(1933)] Failed to delete the database: Database IO error
-[0806/083845.869:ERROR:quota_database.cc(929)] Could not open the quota database, resetting.
-[0806/083850.813:ERROR:quota_database.cc(929)] Could not open the quota database, resetting.
-[0806/083853.743:ERROR:quota_database.cc(931)] Failed to reset the quota database.
-[0806/083853.743:ERROR:quota_database.cc(931)] Failed to reset the quota database.
-[0806/083956.839:INFO:CONSOLE(338)] "Failed to parse video contentType: video/mp4; codecs=avc1.42000a", source: https://static.whatsapp.net/rsrc.php/v3iHCc4/y9/l/rt/_bB6ygKKl66.js?_nc_x=Ij3Wp8lg5Kz (338)
-[0806/083956.841:INFO:CONSOLE(338)] "Failed to parse video contentType: video/mp4; codecs=hev1.1.6.L93.B0", source: https://static.whatsapp.net/rsrc.php/v3iHCc4/y9/l/rt/_bB6ygKKl66.js?_nc_x=Ij3Wp8lg5Kz (338)
-[0806/084042.376:INFO:CONSOLE(150)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v3/y5/r/lLcrgeV-4vv.js?_nc_x=Ij3Wp8lg5Kz (150)
-[0806/084157.540:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
-[0806/084157.546:ERROR:disk_cache.cc(205)] Unable to create cache
-[0806/084157.546:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
-[0806/084157.541:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
-[0806/084157.547:ERROR:disk_cache.cc(205)] Unable to create cache
-[0806/084157.547:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
-[0806/084159.581:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
-[0806/084159.581:ERROR:disk_cache.cc(205)] Unable to create cache
-[0806/084159.870:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
-[0806/084159.870:ERROR:disk_cache.cc(205)] Unable to create cache
-[0806/084159.870:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
-[0806/084159.870:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
-[0806/084159.870:ERROR:disk_cache.cc(205)] Unable to create cache
-[0806/084159.871:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
-[0806/084200.018:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Feature xr-spatial-tracking's parameters are ignored.", source:  (0)
-[0806/084200.019:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'attribution-reporting'.", source:  (0)
-[0806/084200.019:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'battery'.", source:  (0)
-[0806/084200.019:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'compute-pressure'.", source:  (0)
-[0806/084200.019:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.", source:  (0)
-[0806/084200.019:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-issuance'.", source:  (0)
-[0806/084200.019:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'shared-storage'.", source:  (0)
-[0806/084200.019:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'.", source:  (0)
-[0806/084200.019:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-redemption'.", source:  (0)
-[0806/084200.019:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb-unrestricted'.", source:  (0)
-[0806/084200.019:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'unload'.", source:  (0)
-[0806/084200.019:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'window-management'.", source:  (0)
-[0806/084200.576:ERROR:service_worker_storage.cc(1933)] Failed to delete the database: Database IO error
-[0806/084205.258:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
-[0806/084205.260:ERROR:disk_cache.cc(205)] Unable to create cache
-[0806/084205.260:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
-[0806/084205.260:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
-[0806/084205.261:ERROR:disk_cache.cc(205)] Unable to create cache
-[0806/084205.261:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
-[0806/084206.732:ERROR:quota_database.cc(929)] Could not open the quota database, resetting.
-[0806/084207.290:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
-[0806/084207.290:ERROR:disk_cache.cc(205)] Unable to create cache
-[0806/084207.758:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
-[0806/084207.759:ERROR:disk_cache.cc(205)] Unable to create cache
-[0806/084207.759:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
-[0806/084207.763:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
-[0806/084207.764:ERROR:disk_cache.cc(205)] Unable to create cache
-[0806/084207.764:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
-[0806/084208.315:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Feature xr-spatial-tracking's parameters are ignored.", source:  (0)
-[0806/084208.334:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'attribution-reporting'.", source:  (0)
-[0806/084208.334:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'battery'.", source:  (0)
-[0806/084208.334:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'compute-pressure'.", source:  (0)
-[0806/084208.334:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.", source:  (0)
-[0806/084208.334:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-issuance'.", source:  (0)
-[0806/084208.334:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'shared-storage'.", source:  (0)
-[0806/084208.334:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'.", source:  (0)
-[0806/084208.334:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-redemption'.", source:  (0)
-[0806/084208.334:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb-unrestricted'.", source:  (0)
-[0806/084208.335:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'unload'.", source:  (0)
-[0806/084208.335:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'window-management'.", source:  (0)
-[0806/084208.358:ERROR:service_worker_storage.cc(1933)] Failed to delete the database: Database IO error
-[0806/084211.878:ERROR:quota_database.cc(929)] Could not open the quota database, resetting.
-[0806/084214.972:ERROR:quota_database.cc(931)] Failed to reset the quota database.
-[0806/084214.972:ERROR:quota_database.cc(931)] Failed to reset the quota database.
-[0806/084215.228:ERROR:quota_database.cc(929)] Could not open the quota database, resetting.
-[0806/084220.211:ERROR:quota_database.cc(929)] Could not open the quota database, resetting.
-[0806/084223.132:ERROR:quota_database.cc(931)] Failed to reset the quota database.
-[0806/084223.132:ERROR:quota_database.cc(931)] Failed to reset the quota database.
+[0806/085755.473:INFO:CONSOLE(150)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v3/y5/r/lLcrgeV-4vv.js?_nc_x=Ij3Wp8lg5Kz (150)
+[0806/085758.705:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Feature xr-spatial-tracking's parameters are ignored.", source:  (0)
+[0806/085758.705:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'attribution-reporting'.", source:  (0)
+[0806/085758.705:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'battery'.", source:  (0)
+[0806/085758.705:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'compute-pressure'.", source:  (0)
+[0806/085758.705:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.", source:  (0)
+[0806/085758.705:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-issuance'.", source:  (0)
+[0806/085758.705:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'shared-storage'.", source:  (0)
+[0806/085758.705:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'.", source:  (0)
+[0806/085758.705:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-redemption'.", source:  (0)
+[0806/085758.705:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb-unrestricted'.", source:  (0)
+[0806/085758.705:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'unload'.", source:  (0)
+[0806/085758.705:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'window-management'.", source:  (0)
+[0806/085801.923:INFO:CONSOLE(150)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v3/y5/r/lLcrgeV-4vv.js?_nc_x=Ij3Wp8lg5Kz (150)
+[0806/085848.561:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
+[0806/085848.564:ERROR:disk_cache.cc(205)] Unable to create cache
+[0806/085848.564:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
+[0806/085848.568:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
+[0806/085848.569:ERROR:disk_cache.cc(205)] Unable to create cache
+[0806/085848.570:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
+[0806/085850.598:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
+[0806/085850.598:ERROR:disk_cache.cc(205)] Unable to create cache
+[0806/085850.943:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
+[0806/085850.943:ERROR:disk_cache.cc(205)] Unable to create cache
+[0806/085850.943:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
+[0806/085850.944:ERROR:cache_util_win.cc(20)] Unable to move the cache: Acesso negado. (0x5)
+[0806/085850.944:ERROR:disk_cache.cc(205)] Unable to create cache
+[0806/085850.944:ERROR:gpu_disk_cache.cc(673)] Gpu Cache Creation failed: -2
+[0806/085851.147:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Feature xr-spatial-tracking's parameters are ignored.", source:  (0)
+[0806/085851.147:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'attribution-reporting'.", source:  (0)
+[0806/085851.147:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'battery'.", source:  (0)
+[0806/085851.147:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'compute-pressure'.", source:  (0)
+[0806/085851.147:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.", source:  (0)
+[0806/085851.147:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-issuance'.", source:  (0)
+[0806/085851.147:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'shared-storage'.", source:  (0)
+[0806/085851.148:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'shared-storage-select-url'.", source:  (0)
+[0806/085851.148:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'private-state-token-redemption'.", source:  (0)
+[0806/085851.148:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'usb-unrestricted'.", source:  (0)
+[0806/085851.148:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'unload'.", source:  (0)
+[0806/085851.148:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'window-management'.", source:  (0)
+[0806/085851.595:ERROR:service_worker_storage.cc(1933)] Failed to delete the database: Database IO error
+[0806/085857.294:ERROR:quota_database.cc(929)] Could not open the quota database, resetting.
+[0806/085902.225:ERROR:quota_database.cc(929)] Could not open the quota database, resetting.
+[0806/085905.413:ERROR:quota_database.cc(931)] Failed to reset the quota database.
+[0806/085905.415:ERROR:quota_database.cc(931)] Failed to reset the quota database.
