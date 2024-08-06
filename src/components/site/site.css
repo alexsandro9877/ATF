@@ -1,0 +1,47 @@
+.layout {
+  min-height: 100vh;
+}
+
+.site-layout-content {
+  background: #fff;
+  padding: 24px;
+  min-height: 280px;
+  margin-bottom: 20px;
+}
+
+.login-section {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.services-section,
+.testimonials-section,
+.contact-section,
+.feedback-section {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.ant-row {
+  margin-bottom: 20px;
+}
+
+.ant-form-item {
+  margin-bottom: 16px;
+}
+
+.feedback-list {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.site-layout-background {
+  background: #fff;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    padding: 0 1px;
+  }
+}

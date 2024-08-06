@@ -1,0 +1,9 @@
+
+@media (min-width: 72px) {
+    .button-icon {
+        display: inline-block !important;
+    }
+    .dropdown-menu {
+        display: none !important;
+    }
+}
