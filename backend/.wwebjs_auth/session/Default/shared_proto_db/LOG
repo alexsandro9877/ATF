@@ -1,2 +1,3 @@
-2024/07/31-12:12:54.340 5d34 Creating DB C:\Users\alexl\Music\JavaScript\Project\project\backend\.wwebjs_auth\session\Default\shared_proto_db since it was missing.
-2024/07/31-12:12:54.346 5d34 Reusing MANIFEST C:\Users\alexl\Music\JavaScript\Project\project\backend\.wwebjs_auth\session\Default\shared_proto_db/MANIFEST-000001
+2024/08/06-08:39:56.854 6f0c Reusing MANIFEST C:\Users\alexl\Music\ATF\backend\.wwebjs_auth\session\Default\shared_proto_db/MANIFEST-000001
+2024/08/06-08:39:56.854 6f0c Recovering log #3
+2024/08/06-08:39:56.854 6f0c Reusing old log C:\Users\alexl\Music\ATF\backend\.wwebjs_auth\session\Default\shared_proto_db/000003.log 
