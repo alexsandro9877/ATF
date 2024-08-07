@@ -5,6 +5,8 @@ import DynamicButton from '../Dynamic/Button/DynamicButtonProps';
 import DynamicCard from '../Dynamic/Card/DynamicCardProps ';
 
 
+
+
 // const contentStyle = {
 //   height: '400px',
 //   color: '#fff',
@@ -36,8 +38,10 @@ const CarrosselForm: React.FC = () => {
   const [objPrincipal, setObjPrincipal] = useState<IObjPrincipal[]>([]);
   const [imagem, setImagem] = useState<string| null>(null);
   const [searchTerm, setSearchTerm] = useState('');
+
   const titulo_page = 'Carrossel';
 
+  
   const onFinish = (values: IObjPrincipal) => {
     const currentDate = new Date();
     const newItem: IObjPrincipal = {

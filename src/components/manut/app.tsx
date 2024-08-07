@@ -29,6 +29,7 @@ const menuItems = [
   { label: 'FuncionalidadesForm', key: '/FuncionalidadesForm', icon: <ContainerOutlined /> },
   { label: 'ServicoForm', key: '/ServicoForm', icon: <ContactsOutlined /> },
   { label: 'CarrosselForm', key: '/CarrosselForm', icon: <QuestionOutlined /> },
+ { label: 'teste', key: '/teste', icon: <SettingOutlined /> },
 //  { label: 'Configuração', key: '/settings', icon: <SettingOutlined /> },
   // { label: 'Sem mapear', key: '/map', icon: <QuestionOutlined /> },
   // { label: 'Dashboard', key: '/dashboard', icon: <QuestionOutlined /> },
