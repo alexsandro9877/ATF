@@ -5,17 +5,17 @@ import PrivateRoute from './privateRoutes';
 //import CarouselSection from '../components/site/CarouselSection';
 //import Site from '../components/site/Site';
 import AppManut from '../components/manut/app';
-import FeedbackSectionManut from '../components/manut/FeedbackSection';
+import FeedbackSectionManut from '../components/manut/siteManutencao/feedBack/FeedbackSection';
 import FeedbackSection from '../components/site/FeedbackSection';
 import Site from '../components/site/Site';
-import FuncionalidadesForm from '../components/manut/FuncionalidadesForm';
-import ServicoForm from '../components/manut/ServicoForm';
-import CarrosselForm from '../components/manut/CarrosselForm';
+import FuncionalidadesForm from '../components/manut/siteManutencao/feedBack/FuncionalidadesForm';
+import ServicoForm from '../components/manut/siteManutencao/feedBack/ServicoForm';
+import CarrosselForm from '../components/manut/siteManutencao/carrosselForm/CarrosselForm';
 import Error404 from '../components/error404';
 // import Principal from '../components/Dynamic/principal';
 import Unauthorized from '../components/unauthorized';
 import Login from '../components/Login/login';
-import CreateSites from '../components/manut/SiteManutencao';
+import CreateSites from '../components/manut/siteManutencao';
 import PedidoIfood from '../components/manut/pedidoIfood';
 
 

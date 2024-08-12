@@ -1,0 +1,76 @@
+/* Container principal que divide a tela em duas partes */
+.login-container {
+    display: flex;
+    height: 100vh;
+    flex-direction: row; /* Divisão horizontal */
+}
+
+/* Estilo para a imagem de fundo */
+.login-image {
+    flex: 1;
+    background: url('https://i.pinimg.com/originals/81/0f/95/810f95203a1e3f370436718ebc0598cf.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+/* Estilo para o container do formulário */
+.login-form-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f2f5;
+}
+
+/* Estilo do card do formulário */
+.login-card {
+    padding: 24px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do formulário */
+.login-form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* Ícone do campo de input */
+.site-form-item-icon {
+    color: rgba(0, 0, 0, 0.25);
+}
+
+/* Botão de login */
+.login-form-button {
+    width: 100%;
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column; /* Altera para divisão vertical em telas menores */
+    }
+
+    .login-image {
+        height: 40vh; /* Ajusta a altura da imagem em telas menores */
+        background-position: center top; /* Ajusta o posicionamento da imagem */
+    }
+
+    .login-form-container {
+        flex: none;
+        height: 60vh; /* Ajusta a altura do container do formulário */
+        padding: 20px; /* Adiciona algum padding */
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: none; /* Remove a largura máxima em telas pequenas */
+    }
+}
+
+@media (max-width: 480px) {
+    .login-image {
+        height: 30vh; /* Ajusta a altura da imagem em dispositivos muito pequenos */
+    }
+}

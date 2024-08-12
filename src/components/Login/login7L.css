@@ -1,0 +1,109 @@
+.login-container {
+    display: flex;
+    min-height: 100vh;
+    /* background: linear-gradient(135deg, #004d7a 0%, #008793 50%, #00bf72 100%); */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.login-image {
+    flex: 1;
+    background-image: url('https://i.pinimg.com/originals/81/0f/95/810f95203a1e3f370436718ebc0598cf.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Ajustar altura conforme necessário */
+    display: block;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.login-form-container {
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1; /* Garantir que o conteúdo do formulário esteja sobre a imagem */
+}
+
+.login-logo {
+    display: block;
+    margin-bottom: 20px;
+    max-width: 100px;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-form-button {
+    width: 100%;
+    background: #004d7a;
+    border: none;
+    border-radius: 5px;
+    height: 45px;
+    font-size: 16px;
+}
+
+.login-form-button:hover {
+    background: #00bf72;
+}
+
+.custom-alert {
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff4d4f;
+    color: #fff;
+    font-size: 14px;
+}
+
+.custom-alert .ant-alert-icon {
+    color: #fff;
+}
+
+.loading-spinner {
+    text-align: center;
+    margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+    .login-content {
+        flex-direction: row;
+        align-items: stretch; /* Faz com que a imagem e o formulário ocupem a altura total disponível */
+    }
+
+    .login-image {
+        height: auto; /* Permite que a imagem se ajuste automaticamente */
+        min-width: 50%; /* Define a largura mínima para a imagem */
+        border-radius: 2%;
+        opacity: 75%;
+    }
+
+    .login-form-container {
+        width: 50%;
+        padding: 60px;
+        position: relative;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-image {
+        display: none; /* Oculta a imagem em telas menores */
+    }
+}
