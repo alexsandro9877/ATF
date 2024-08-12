@@ -1,28 +1,27 @@
 import React, { useState } from 'react';
-import { Input, Form, Button, Alert, Spin, Row, Col } from 'antd';
+import { Input, Form, Button,  Spin, Row, Col,  message } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import './login.css'; // Manter para estilização específica
+import './login.css';
 import { useNavigate } from 'react-router-dom';
-import AuthUserStore from '../../store/auth.store';
+import AuthUserStore from '../../../store/auth.store';
 
 const Login: React.FC = () => {
     const { logIn } = AuthUserStore();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
+  
 
     const onFinish = async (values: { username: string; password: string }) => {
         setLoading(true);
-        setError(null); // Clear previous errors
         try {
             const result = await logIn(values.username);
             if (result.success) {
                 navigate("/");
             } else {
-                setError(result.message);
+                message.error(result.message);
             }
-        } catch (error: any) {
-            setError(error.message);
+        } catch (error) {
+            message.error("Ocorreu um erro inesperado.");
         } finally {
             setLoading(false);
         }
@@ -30,8 +29,9 @@ const Login: React.FC = () => {
 
     return (
         <div className="login-container">
-            <Row className="login-content" align="middle" justify="center">
-                <Col xs={24} sm={12} md={8} className="login-form-container">
+            <Row justify="center" align="middle" className="login-content">
+                <Col xs={24} sm={24} md={16} lg={12} className="login-image" />
+                <Col xs={24} sm={24} md={8} lg={6} className="login-form-container">
                     <img
                         src="https://i.pinimg.com/originals/81/0f/95/810f95203a1e3f370436718ebc0598cf.jpg"
                         alt="Logo"
@@ -77,16 +77,7 @@ const Login: React.FC = () => {
                         </Form.Item>
                     </Form>
 
-                    {error && (
-                        <div className="custom-alert" aria-live="assertive">
-                            <Alert
-                                message="Erro"
-                                description={error}
-                                type="error"
-                                showIcon
-                            />
-                        </div>
-                    )}
+                   
 
                     {loading && (
                         <div className="loading-spinner">

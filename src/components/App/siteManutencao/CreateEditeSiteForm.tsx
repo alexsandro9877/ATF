@@ -16,9 +16,12 @@ const CreateSiteForm: React.FC<CreateSiteFormProps> = ({ initialValues }) => {
   const queryClient = useQueryClient();
 
   const { mutate: postSite} = usePostSites({
+    
     onSuccess: (data: any) => {
       const successMessage = data.message || 'Site criado com sucesso';
       message.success(successMessage);
+         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-expect-error
       queryClient.invalidateQueries('sites');
       form.resetFields();
     },
@@ -32,6 +35,8 @@ const CreateSiteForm: React.FC<CreateSiteFormProps> = ({ initialValues }) => {
     onSuccess: (data: any) => {
       const successMessage = data.message || 'Site atualizado com sucesso';
       message.success(successMessage);
+         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-expect-error
       queryClient.invalidateQueries('sites');
       form.resetFields();
     },
@@ -97,6 +102,8 @@ const CreateSiteForm: React.FC<CreateSiteFormProps> = ({ initialValues }) => {
                 <Form.Item
                   {...restField}
                   name={[name]}
+                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-expect-error
                   fieldKey={[fieldKey]}
                   rules={[{ required: true, message: 'Insira a rota' }]}
                 >
@@ -121,7 +128,8 @@ const CreateSiteForm: React.FC<CreateSiteFormProps> = ({ initialValues }) => {
               <Space key={key} style={{ display: 'flex', marginBottom: 8 }} align="baseline">
                 <Form.Item
                   {...restField}
-                  name={[name]}
+                  name={[name]}   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-expect-error
                   fieldKey={[fieldKey]}
                   rules={[{ required: true, message: 'Insira o link da imagem' }]}
                 >
@@ -147,6 +155,8 @@ const CreateSiteForm: React.FC<CreateSiteFormProps> = ({ initialValues }) => {
                 <Form.Item
                   {...restField}
                   name={[name, 'title']}
+                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-expect-error
                   fieldKey={[fieldKey, 'title']}
                   label="Título da Página"
                   rules={[{ required: true, message: 'Insira o título da página' }]}
@@ -162,6 +172,8 @@ const CreateSiteForm: React.FC<CreateSiteFormProps> = ({ initialValues }) => {
                           <Form.Item
                             {...restImageField}
                             name={[imageName]}
+                               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-expect-error
                             fieldKey={[imageFieldKey]}
                             rules={[{ required: true, message: 'Insira o link da imagem' }]}
                           >
@@ -182,6 +194,8 @@ const CreateSiteForm: React.FC<CreateSiteFormProps> = ({ initialValues }) => {
                 <Form.Item
                   {...restField}
                   name={[name, 'description']}
+                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-expect-error
                   fieldKey={[fieldKey, 'description']}
                   label="Descrição da Página"
                   rules={[{ required: true, message: 'Insira a descrição da página' }]}
@@ -197,6 +211,8 @@ const CreateSiteForm: React.FC<CreateSiteFormProps> = ({ initialValues }) => {
                           <Form.Item
                             {...restTypeField}
                             name={[typeName]}
+                               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-expect-error
                             fieldKey={[typeFieldKey]}
                             rules={[{ required: true, message: 'Insira o tipo' }]}
                           >
@@ -222,6 +238,8 @@ const CreateSiteForm: React.FC<CreateSiteFormProps> = ({ initialValues }) => {
                           <Form.Item
                             {...restObsField}
                             name={[obsName]}
+                               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-expect-error
                             fieldKey={[obsFieldKey]}
                             rules={[{ required: true, message: 'Insira a observação' }]}
                           >
@@ -247,6 +265,8 @@ const CreateSiteForm: React.FC<CreateSiteFormProps> = ({ initialValues }) => {
                           <Form.Item
                             {...restCommentField}
                             name={[commentName]}
+                               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-expect-error
                             fieldKey={[commentFieldKey]}
                             rules={[{ required: true, message: 'Insira o comentário' }]}
                           >
@@ -267,6 +287,8 @@ const CreateSiteForm: React.FC<CreateSiteFormProps> = ({ initialValues }) => {
                 <Form.Item
                   {...restField}
                   name={[name, 'like']}
+                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-expect-error
                   fieldKey={[fieldKey, 'like']}
                   label="Likes"
                   rules={[{ required: true, message: 'Insira a quantidade de likes' }]}
@@ -277,6 +299,8 @@ const CreateSiteForm: React.FC<CreateSiteFormProps> = ({ initialValues }) => {
                 <Form.Item
                   {...restField}
                   name={[name, 'status']}
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-expect-error
                   fieldKey={[fieldKey, 'status']}
                   valuePropName="checked"
                   label="Status"

@@ -1,28 +1,35 @@
 import React, { useState } from 'react';
-import { Input, Form, Card, Button, Alert, Spin, message } from 'antd';
+import { Input, Form, Card, Button, Alert, Spin } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import './login.css';
 import { useNavigate } from 'react-router-dom';
-import AuthUserStore from '../../store/auth.store';
+import AuthUserStore from '../../../store/auth.store';
 
 const Login: React.FC = () => {
     const { logIn } = AuthUserStore();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
- 
+    const [error, setError] = useState<string | null>(null);
+
     const onFinish = async (values: { username: string; password: string }) => {
         setLoading(true);
         try {
-            const result = await logIn(values.username);
-            if (result.success) {
-                navigate("/");
-            } else {
-                message.error(result.message);
-            }
+            logIn(values.username)
+                .then((e) => {
+                    if (e.success) {
+                        navigate("/");
+                    } else {
+                        setError(`${e.message}`);
+                    }
+                })
+                .catch((error) => {
+                    setError(error.message);
+                })
+                .finally(() => {
+                    setLoading(false);
+                });
         } catch (error) {
-            message.error("Ocorreu um erro inesperado.");
-        } finally {
-            setLoading(false);
+            console.error("Error during login:", error);
         }
     };
 
@@ -30,9 +37,9 @@ const Login: React.FC = () => {
         <div className="login-container">
             <div className="login-overlay" />
             <div className="login-content">
-                <Card >
-                     <img
-                        src="https://i.pinimg.com/originals/81/0f/95/810f95203a1e3f370436718ebc0598cf.jpg"
+                <Card className="login-card">
+                    <img
+                        src="your-logo-url-here"
                         alt="Logo"
                         className="login-logo"
                     />
@@ -53,24 +60,28 @@ const Login: React.FC = () => {
                         </Form.Item>
 
                         <Form.Item>
-                        <Button
+                            <Button
                                 type="primary"
                                 htmlType="submit"
                                 className="login-form-button"
                                 loading={loading}
-                                disabled={loading}
                             >
                                 Log in
-                                {loading && (
-                                    <div className="loading-spinner">
-                                        <Spin tip="Logging in..." />
-                                    </div>
-                                )}
                             </Button>
                         </Form.Item>
                     </Form>
 
-                   
+                    <div style={{ textAlign: 'center', marginTop: 16 }}>
+                        {loading && <Spin tip="Logging in..." />}
+                        {error && (
+                            <Alert
+                                message="Erro"
+                                description={error}
+                                type="error"
+                                showIcon
+                            />
+                        )}
+                    </div>
                 </Card>
             </div>
         </div>

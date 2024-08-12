@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, Form, Button,  Spin, Row, Col,  message } from 'antd';
+import { Input, Form, Button, Spin, Row, Col, message } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import './login.css';
 import { useNavigate } from 'react-router-dom';
@@ -9,7 +9,6 @@ const Login: React.FC = () => {
     const { logIn } = AuthUserStore();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
-  
 
     const onFinish = async (values: { username: string; password: string }) => {
         setLoading(true);
@@ -53,7 +52,7 @@ const Login: React.FC = () => {
                                 aria-label="Nome de usuário"
                             />
                         </Form.Item>
-{/* 
+                        {/* 
                         <Form.Item
                             name="password"
                             rules={[{ required: true, message: 'Por favor, insira sua senha!' }]}
@@ -76,8 +75,6 @@ const Login: React.FC = () => {
                             </Button>
                         </Form.Item>
                     </Form>
-
-                   
 
                     {loading && (
                         <div className="loading-spinner">

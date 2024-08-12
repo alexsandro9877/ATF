@@ -1,27 +1,27 @@
-import { Col, Row } from 'antd'
-import React from 'react'
-import DynamicCard from '../../Dynamic/Card/DynamicCardProps '
-import Process from './progress'
-import DetalhePedido from './detalhePedido'
+// import { Col, Row } from 'antd'
 
-const PedidoIfood = () => {
-  return (
-    <DynamicCard
-    title={'Traking'}
-    content={
-      <Row>
-      <Col flex={'auto'}>
-      <Process/>
+// import DynamicCard from '../../Dynamic/Card/DynamicCardProps '
+// import Process from './progress'
+// import DetalhePedido from './detalhePedido'
+
+// const PedidoIfood = () => {
+//   return (
+//     <DynamicCard
+//     title={'Traking'}
+//     content={
+//       <Row>
+//       <Col flex={'auto'}>
+//       <Process/>
       
-      </Col>
-      <Col flex={'auto'}>
-      {/* <PreImagem description={formValues.description} imagemUrl={ imagem ? imagem : formValues.image } title={formValues.title} /> */}
+//       </Col>
+//       <Col flex={'auto'}>
+//       {/* <PreImagem description={formValues.description} imagemUrl={ imagem ? imagem : formValues.image } title={formValues.title} /> */}
 
-        <DetalhePedido/>
+//         <DetalhePedido/>
    
-      </Col>
-    </Row>}/>
-  )
-}
+//       </Col>
+//     </Row>}/>
+//   )
+// }
 
-export default PedidoIfood
+// export default PedidoIfood

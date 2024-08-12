@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Input, Form, Card, Button, Alert, Spin } from 'antd';
+import { Input, Form, Button, Alert, Spin } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import './login.css';
 import { useNavigate } from 'react-router-dom';
-import AuthUserStore from '../../store/auth.store';
+import AuthUserStore from '../../../store/auth.store';
 
 const Login: React.FC = () => {
     const { logIn } = AuthUserStore();
@@ -35,12 +35,12 @@ const Login: React.FC = () => {
 
     return (
         <div className="login-container">
-            <div className="login-overlay" />
             <div className="login-content">
-                <Card className="login-card">
+                <div className="login-image"></div>
+                <div className="login-form-container">
                     <img
-                        src="your-logo-url-here"
-                        alt="Logo"
+                        src="https://i.pinimg.com/originals/81/0f/95/810f95203a1e3f370436718ebc0598cf.jpg"
+                        alt="ATF AutomatFull Logo"
                         className="login-logo"
                     />
                     <Form
@@ -71,18 +71,23 @@ const Login: React.FC = () => {
                         </Form.Item>
                     </Form>
 
-                    <div style={{ textAlign: 'center', marginTop: 16 }}>
-                        {loading && <Spin tip="Logging in..." />}
-                        {error && (
+                    {error && (
+                        <div className="custom-alert">
                             <Alert
                                 message="Erro"
                                 description={error}
                                 type="error"
                                 showIcon
                             />
-                        )}
-                    </div>
-                </Card>
+                        </div>
+                    )}
+
+                    {loading && (
+                        <div style={{ textAlign: 'center', marginTop: 16 }}>
+                            <Spin tip="Logging in..." />
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );

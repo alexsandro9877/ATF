@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import './app.css';
+import { useEffect, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import {
   ShoppingOutlined,
@@ -10,12 +9,12 @@ import {
   ContactsOutlined,
   ContainerOutlined,
 } from '@ant-design/icons';
-import {
-  Layout, Avatar, Modal, theme, AutoComplete, Input,
-  Popover, Row, Col,
-} from 'antd';
+import { Layout, Avatar, Modal, theme, AutoComplete, Input, Popover, message } from 'antd';
 import AuthUserStore from '../../store/auth.store';
 import ProfileDrawer from './appProfileDrawer';
+import './app.css';
+import { useQueryClient } from '@tanstack/react-query';
+import { useUserEmail } from '../../hooks/api';
 
 const { Header, Content, Footer } = Layout;
 
@@ -46,8 +45,42 @@ const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const { userAut, logOut } = AuthUserStore();
 
-  const handleLogoutModal = () => setIsModalVisible(true);
-  const handleCancel = () => setIsModalVisible(false);
+ const queryClient = useQueryClient();
+
+  const { mutate: body} = useUserEmail({
+    
+    onSuccess: (data: any) => {
+         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-expect-error
+      queryClient.invalidateQueries('user');
+      //fetchUser();
+       const successMessage = data.message;
+      message.success(successMessage);
+    },
+    onError: (error: any) => {
+      const errorMessage = error.response?.data?.message || 'Falha ao criar site';
+      message.error('Sessão expirada. Por favor, faça login novamente.');
+      logOut();
+      message.error(errorMessage);
+    }
+  });
+
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      body({email: userAut[0].email})
+      // if (!statusAutenticacao) {
+      //   fetchUser();
+      // }
+     
+      // if (!localStorage.getItem('authToken')) {
+      //   message.error('Sessão expirada. Por favor, faça login novamente.');
+      //   navigate('/login');
+      // }
+    }, 10000);
+  
+    return () => clearInterval(intervalId);
+  }, [userAut]);
 
   const {
     token: { colorBgBase },
@@ -58,41 +91,14 @@ const App: React.FC = () => {
     setSearchTerm('');
   };
 
-  const handleOpenDrawer = () => {
-    setDrawerOpen(true);
-  };
-
-  const handleCloseDrawer = () => {
-    setDrawerOpen(false);
-  };
-
+  const handleOpenDrawer = () => setDrawerOpen(true);
+  const handleCloseDrawer = () => setDrawerOpen(false);
+  const handleLogoutModal = () => setIsModalVisible(true);
+  const handleCancel = () => setIsModalVisible(false);
   const handleLogouts = () => {
     handleLogoutModal();
     setDrawerOpen(false);
   };
-
-  const renderUserInfo = () => {
-    const content = <>Configurações de user.</>;
-    return (
-      <Popover content={content}>
-        <Avatar
-          style={{ border: '1px solid black' }}
-          src={"https://i.pinimg.com/originals/81/0f/95/810f95203a1e3f370436718ebc0598cf.jpg"}
-          onClick={handleOpenDrawer}
-        />
-      </Popover>
-    );
-  };
-
-  const options = menuItems.map(item => ({
-    value: item.key,
-    label: (
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        {item.icon}
-        <span style={{ marginLeft: 8 }}>{item.label}</span>
-      </div>
-    ),
-  }));
 
   const handleOk = () => {
     logOut();
@@ -100,35 +106,54 @@ const App: React.FC = () => {
     setIsModalVisible(false);
   };
 
+  const renderUserInfo = () => (
+    <Popover content="Configurações">
+      <Avatar
+        style={{ border: '1px solid black' }}
+        src={userAut?.[0]?.picture}
+        onClick={handleOpenDrawer}
+      />
+    </Popover>
+  );
+
+  const options = userAut?.[0]?.permissions
+    ? menuItems
+        .filter(item => 
+          JSON.stringify(userAut[0].permissions).includes(item.key) &&
+          item.label.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        .map(item => ({
+          value: item.key,
+          label: (
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              {item.icon}
+              <span style={{ marginLeft: 8 }}>{item.label}</span>
+            </div>
+          ),
+        }))
+    : [];
+
   return (
     <Layout style={{ minHeight: '100vh' }}>
-   <Header style={{ background: colorBgBase, padding: 0 }}>
-    <div className="header-container">
-        <div className="header-left">
-            <img
-                src="./src/assets/logoaR.png"
-                alt="Logo"
-                
-            />
+      <Header style={{ background: colorBgBase, padding: 0 }}>
+        <div className="header-container">
+          <div className="header-left">
+            <img src="./src/assets/logoaR.png" alt="Logo" />
             <AutoComplete
-                style={{ width: 200 }}
-                options={options}
-                value={searchTerm}
-                onChange={setSearchTerm}
-                onSelect={handleSelect}
+              style={{ width: 200 }}
+              options={options}
+              value={searchTerm}
+              onChange={setSearchTerm}
+              onSelect={handleSelect}
             >
-                <Input
-                    prefix={<SearchOutlined />}
-                    placeholder="Menu de busca..."
-                />
+              <Input prefix={<SearchOutlined />} placeholder="Menu de busca..." />
             </AutoComplete>
-        </div>
-        <div className="header-right">
+          </div>
+          <div className="header-right">
             {renderUserInfo()}
+          </div>
         </div>
-    </div>
-</Header>
-
+      </Header>
       <Layout>
         <Content
           className='manut-container'
@@ -141,7 +166,9 @@ const App: React.FC = () => {
         >
           <Outlet />
         </Content>
-        <Footer style={{ textAlign: 'center' }}>AutomatFull ©2024 Created by AutomatFull</Footer>
+        <Footer style={{ textAlign: 'center' }}>
+          AutomatFull ©2024 Created by AutomatFull
+        </Footer>
         <Modal
           title="Logout"
           visible={isModalVisible}
@@ -149,10 +176,14 @@ const App: React.FC = () => {
           onCancel={handleCancel}
           okText="Sim"
           cancelText="Não"
+          width='35%'
+          centered
+          destroyOnClose
         >
           <p>Você deseja deslogar da aplicação?</p>
         </Modal>
         <ProfileDrawer
+          useAut={userAut}
           open={drawerOpen}
           onClose={handleCloseDrawer}
           handleLogout={handleLogouts}

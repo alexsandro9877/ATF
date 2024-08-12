@@ -44,12 +44,15 @@ export interface DecodedToken {
 interface IToken {
   accessToken: string;
   refreshToken: string;
+  expires_in: number;
 }
 
 export class AuthUserStore {
   public statusAutenticacao = false;
-  public userAut: IUser [] = [];
+  public userAut: IUser[] = [];
   access_token: { token: string } = { token: "" };
+  refreshToken: string = "";
+  expires_in: number = 0;
 
   constructor() {
     makeObservable(this, {
@@ -58,47 +61,53 @@ export class AuthUserStore {
       access_token: observable,
       logIn: action,
       logOut: action,
+      expires_in: observable,
+      refreshToken: observable,
+      getUser: action
     });
   }
 
   async logIn(email: string): Promise<{ success: boolean; message?: string }> {
     try {
       const loginResponse = await api.post<IToken>(`/login`, { username: email });
-      
+
       if (!loginResponse.data || !loginResponse.data.refreshToken) {
         return { success: false, message: "Login failed. No refresh token received." };
       }
-  
-      localStorage.setItem('authToken', loginResponse.data.refreshToken);
-  
-      const userResponse = await api.post('/user/email' , {email: email});
+
+    //  localStorage.setItem('authToken', loginResponse.data.accessToken);
+      localStorage.setItem('refreshToken', loginResponse.data.refreshToken);
+      const userResponse = await api.post('/user/email', { email: email });
       if (!userResponse.data || !userResponse.data.status) {
         return { success: false, message: "User not registered." };
       }
-  
+
       this.access_token = { token: loginResponse.data.refreshToken };
+      this.expires_in = loginResponse.data.expires_in
       this.userAut = [userResponse.data];
       this.statusAutenticacao = userResponse.data.status;
-      
       return { success: true };
-  
+
     } catch (error: any) {
-      const errorMessage = error.response?.data?.message || error.message || "An unexpected error occurred.";
+      const errorMessage = error.response?.data?.message || error.message || "Error";
       console.error("Error during login:", errorMessage);
       return { success: false, message: errorMessage };
     }
   }
-  
 
   async logOut() {
     this.statusAutenticacao = false;
     this.access_token = { token: "" };
     this.userAut = [];
     localStorage.removeItem('authToken');
+    localStorage.removeItem('refreshToken');
   }
-  getUser(): IUser[]  {
+
+  getUser(): IUser[] {
     return this.userAut;
   }
+ 
 }
+
 const authUserStore = new AuthUserStore();
 export default authUserStore;

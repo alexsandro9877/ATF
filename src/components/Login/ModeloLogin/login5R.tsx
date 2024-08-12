@@ -1,40 +1,46 @@
 import React, { useState } from 'react';
-import { Input, Form, Button,  Spin, Row, Col,  message } from 'antd';
+import { Input, Form, Button, Alert, Spin } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import './login.css';
 import { useNavigate } from 'react-router-dom';
-import AuthUserStore from '../../store/auth.store';
+import AuthUserStore from '../../../store/auth.store';
 
 const Login: React.FC = () => {
     const { logIn } = AuthUserStore();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
-  
+    const [error, setError] = useState<string | null>(null);
 
     const onFinish = async (values: { username: string; password: string }) => {
         setLoading(true);
         try {
-            const result = await logIn(values.username);
-            if (result.success) {
-                navigate("/");
-            } else {
-                message.error(result.message);
-            }
+            logIn(values.username)
+                .then((e) => {
+                    if (e.success) {
+                        navigate("/");
+                    } else {
+                        setError(`${e.message}`);
+                    }
+                })
+                .catch((error) => {
+                    setError(error.message);
+                })
+                .finally(() => {
+                    setLoading(false);
+                });
         } catch (error) {
-            message.error("Ocorreu um erro inesperado.");
-        } finally {
-            setLoading(false);
+            console.error("Error during login:", error);
         }
     };
 
     return (
         <div className="login-container">
-            <Row justify="center" align="middle" className="login-content">
-                <Col xs={24} sm={24} md={16} lg={12} className="login-image" />
-                <Col xs={24} sm={24} md={8} lg={6} className="login-form-container">
+            <div className="login-content">
+                <div className="login-image"></div>
+                <div className="login-form-container">
                     <img
                         src="https://i.pinimg.com/originals/81/0f/95/810f95203a1e3f370436718ebc0598cf.jpg"
-                        alt="Logo"
+                        alt="ATF AutomatFull Logo"
                         className="login-logo"
                     />
                     <Form
@@ -77,15 +83,24 @@ const Login: React.FC = () => {
                         </Form.Item>
                     </Form>
 
-                   
+                    {error && (
+                        <div className="custom-alert" aria-live="assertive">
+                            <Alert
+                                message="Erro"
+                                description={error}
+                                type="error"
+                                showIcon
+                            />
+                        </div>
+                    )}
 
                     {loading && (
-                        <div className="loading-spinner">
+                        <div style={{ textAlign: 'center', marginTop: 16 }}>
                             <Spin tip="Logging in..." />
                         </div>
                     )}
-                </Col>
-            </Row>
+                </div>
+            </div>
         </div>
     );
 };

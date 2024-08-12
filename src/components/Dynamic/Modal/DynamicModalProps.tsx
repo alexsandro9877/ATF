@@ -11,22 +11,26 @@ interface DynamicModalProps {
     icon?: React.ReactNode;
     onOk?:()=> void;
     confirmLoading? : boolean;
+    onCancel?: ()=>void;
 }
 
-const DynamicModal: React.FC<DynamicModalProps> = ({ visible, onClose,onOk, title, icon, content,confirmLoading }) => {
+const DynamicModal: React.FC<DynamicModalProps> = ({ visible, onClose,onOk, title, icon, onCancel, content,confirmLoading }) => {
     return (
         <Modal
             width={'35%'}
             centered
             destroyOnClose
+            onClose={onClose}
             confirmLoading ={confirmLoading}
             onOk={onOk}
             title={title}
-            //closeIcon={icon}
+            closeIcon={icon}
             visible={visible}
-            onCancel={onClose}
+            onCancel={onCancel}
             footer={null}
-            className="dynamic-modal" 
+             className="dynamic-modal" 
+             okText="Sim"
+             cancelText="Não"
         >
             {content}
         </Modal>

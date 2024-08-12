@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Input, Form, Card, Button, Alert, Spin } from 'antd';
+import { Input, Form, Button, Alert, Spin, Row, Col } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import './login.css';
+import './login.css'; // Manter para estilização específica
 import { useNavigate } from 'react-router-dom';
-import AuthUserStore from '../../store/auth.store';
+import AuthUserStore from '../../../store/auth.store';
 
 const Login: React.FC = () => {
     const { logIn } = AuthUserStore();
@@ -13,33 +13,27 @@ const Login: React.FC = () => {
 
     const onFinish = async (values: { username: string; password: string }) => {
         setLoading(true);
+        setError(null); // Clear previous errors
         try {
-            logIn(values.username)
-                .then((e) => {
-                    if (e.success) {
-                        navigate("/");
-                    } else {
-                        setError(`${e.message}`);
-                    }
-                })
-                .catch((error) => {
-                    setError(error.message);
-                })
-                .finally(() => {
-                    setLoading(false);
-                });
-        } catch (error) {
-            console.error("Error during login:", error);
+            const result = await logIn(values.username);
+            if (result.success) {
+                navigate("/");
+            } else {
+                setError(String(result.message));
+            }
+        } catch (error: any) {
+            setError(error.message);
+        } finally {
+            setLoading(false);
         }
     };
 
     return (
         <div className="login-container">
-            <div className="login-overlay" />
-            <div className="login-content">
-                <Card className="login-card">
+            <Row className="login-content" align="middle" justify="center">
+                <Col xs={24} sm={12} md={8} className="login-form-container">
                     <img
-                        src="your-logo-url-here"
+                        src="https://i.pinimg.com/originals/81/0f/95/810f95203a1e3f370436718ebc0598cf.jpg"
                         alt="Logo"
                         className="login-logo"
                     />
@@ -56,6 +50,17 @@ const Login: React.FC = () => {
                             <Input
                                 prefix={<UserOutlined className="site-form-item-icon" />}
                                 placeholder="Usuário"
+                                aria-label="Nome de usuário"
+                            />
+                        </Form.Item>
+
+                        <Form.Item
+                            name="password"
+                            rules={[{ required: true, message: 'Por favor, insira sua senha!' }]}
+                        >
+                            <Input.Password
+                                placeholder="Senha"
+                                aria-label="Senha"
                             />
                         </Form.Item>
 
@@ -65,25 +70,31 @@ const Login: React.FC = () => {
                                 htmlType="submit"
                                 className="login-form-button"
                                 loading={loading}
+                                disabled={loading}
                             >
                                 Log in
                             </Button>
                         </Form.Item>
                     </Form>
 
-                    <div style={{ textAlign: 'center', marginTop: 16 }}>
-                        {loading && <Spin tip="Logging in..." />}
-                        {error && (
+                    {error && (
+                        <div className="custom-alert" aria-live="assertive">
                             <Alert
                                 message="Erro"
                                 description={error}
                                 type="error"
                                 showIcon
                             />
-                        )}
-                    </div>
-                </Card>
-            </div>
+                        </div>
+                    )}
+
+                    {loading && (
+                        <div className="loading-spinner">
+                            <Spin tip="Logging in..." />
+                        </div>
+                    )}
+                </Col>
+            </Row>
         </div>
     );
 };
