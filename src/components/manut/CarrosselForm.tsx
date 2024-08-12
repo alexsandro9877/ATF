@@ -3,6 +3,7 @@ import { Form, Input, Button,  Row, Col, Carousel, List, Avatar, Space, message,
 import { CaretLeftOutlined, CheckOutlined, CloseOutlined, DeleteOutlined, FolderViewOutlined, StarOutlined } from '@ant-design/icons';
 import DynamicButton from '../Dynamic/Button/DynamicButtonProps';
 import DynamicCard from '../Dynamic/Card/DynamicCardProps ';
+import Process from './progress';
 
 
 
@@ -130,7 +131,7 @@ const CarrosselForm: React.FC = () => {
     <>
     <Row>
       <Col flex={'auto'}>
-      <DynamicCard
+      {/* <DynamicCard
         title={titulo_page}
         content={
           <>
@@ -175,8 +176,8 @@ const CarrosselForm: React.FC = () => {
           
           
         }
-      />
-      <DynamicCard
+      /> */}
+      {/* <DynamicCard
         title={titulo_page + ' cadastrados.'}
         extra={ <><Input.Search size="large" placeholder="Buscar por nome" onChange={(e) => setSearchTerm(e.target.value)} /> </>}
         content={
@@ -285,7 +286,7 @@ const CarrosselForm: React.FC = () => {
                                   </div>
                                 )}
                               </Upload> */}
-                            </Form.Item>
+                            {/* </Form.Item>
                            
                             <Form.Item>
                               <Button type="primary" htmlType="submit">
@@ -309,10 +310,12 @@ const CarrosselForm: React.FC = () => {
             )}
           />
         }
-      />
+      /> */} 
       </Col>
-      <Col md={12} >
-      <PreImagem description={formValues.description} imagemUrl={ imagem ? imagem : formValues.image } title={formValues.title} />
+      <Col flex={'auto'}>
+      {/* <PreImagem description={formValues.description} imagemUrl={ imagem ? imagem : formValues.image } title={formValues.title} /> */}
+
+      {/* <Process/> */}
       </Col>
     </Row>
     

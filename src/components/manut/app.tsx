@@ -17,6 +17,7 @@ import {
   Button, Popover, Drawer
 } from 'antd';
 import AuthUserStore from '../../store/auth.store';
+
 // import autenticaStore from './modules/autentica.store';
 
 
@@ -30,6 +31,16 @@ const menuItems = [
   { label: 'ServicoForm', key: '/ServicoForm', icon: <ContactsOutlined /> },
   { label: 'CarrosselForm', key: '/CarrosselForm', icon: <QuestionOutlined /> },
  { label: 'teste', key: '/teste', icon: <SettingOutlined /> },
+ { label: 'Produto', key: '/product', icon: <ShoppingOutlined /> },
+ { label: 'Mercado', key: '/userMeli', icon: <ShoppingOutlined /> },
+ { label: 'Usuário', key: '/user', icon: <UserOutlined /> },
+ { label: 'Cliente', key: '/customer', icon: <ContainerOutlined /> },
+ { label: 'Conta', key: '/account', icon: <ContactsOutlined /> },
+ { label: 'Configuração', key: '/settings', icon: <SettingOutlined /> },
+ { label: 'Sem mapear', key: '/map', icon: <QuestionOutlined /> },
+ { label: 'Dashboard', key: '/dashboard', icon: <QuestionOutlined /> },
+ { label: 'Teste 404', key: '/404', icon: <QuestionOutlined /> },
+ { label: 'Parcerias', key: '/partnership', icon: <QuestionOutlined /> },
 //  { label: 'Configuração', key: '/settings', icon: <SettingOutlined /> },
   // { label: 'Sem mapear', key: '/map', icon: <QuestionOutlined /> },
   // { label: 'Dashboard', key: '/dashboard', icon: <QuestionOutlined /> },
@@ -55,7 +66,7 @@ const AppManut: React.FC = () => {
 
   const handleSelect = (key: string) => {
     navigate(key);
-    console.log(userAut);
+    //console.log(userAut);
     setSearchTerm('');
   };
 
@@ -108,9 +119,9 @@ const AppManut: React.FC = () => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 16px' }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Babygrande_300x120_Logo.jpg"
+              src="https://i.pinimg.com/originals/81/0f/95/810f95203a1e3f370436718ebc0598cf.jpg"
               alt="Logo"
-              style={{ width: '100px', padding: '16px' }}
+              style={{ width: '80px', padding: '16px' }}
             />
             <AutoComplete
               style={{ width: 200, marginLeft: 16 }}

@@ -71,15 +71,15 @@ export class AuthUserStore {
   
       localStorage.setItem('authToken', loginResponse.data.refreshToken);
   
-      // const userResponse = await getUserByEmail(email);
-      // if (!userResponse.data || !userResponse.data.status) {
-      //   return { success: false, message: "User not registered." };
-      // }
+      const userResponse = await api.post('/user/email' , {email: email});
+      if (!userResponse.data || !userResponse.data.status) {
+        return { success: false, message: "User not registered." };
+      }
   
-      // this.access_token = { token: loginResponse.data.refreshToken };
-      // this.userAut = [userResponse.data];
-      // this.statusAutenticacao = userResponse.data.status;
-  
+      this.access_token = { token: loginResponse.data.refreshToken };
+      this.userAut = [userResponse.data];
+      this.statusAutenticacao = userResponse.data.status;
+      
       return { success: true };
   
     } catch (error: any) {

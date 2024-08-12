@@ -1,0 +1,61 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.manut-container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.manut-video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.manut-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     /* background: url('https://br.freepik.com/fotos-vetores-gratis/fundo-hd'); */
+     /* background: url('https://img.freepik.com/vetores-gratis/formas-geometricas-gradientes-no-conceito-de-fundo-escuro_23-2148438263.jpg?w=1380&t=st=1723464570~exp=1723465170~hmac=525b610c6369ddc706297884888e7ec7667dede1e9a0485b8eeab754de4b216d'); */
+    /*https://img.freepik.com/fotos-premium/uma-parede-de-telhas-pretas-com-uma-que-tem-um-fundo-branco_994023-318212.jpg*/
+    background: url('https://img.freepik.com/fotos-gratis/fundo-abstrato-dos-blocos-de-voronoi-extrudados-parede-corporativa-limpa-com-luz-minima-ilustracao-3d-da-superficie-geometrica-deslocamento-de-elementos-poligonais_1217-2503.jpg?w=1380&t=st=1723464789~exp=1723465389~hmac=f45d922809cec0b3ff605c66ffd6cf0d3a2817ddb86319b8d974d7416b53b925');
+    /* background: url('https://img.freepik.com/fotos-gratis/renderizacao-3d-de-fundo-de-textura-hexagonal_23-2150796421.jpg?t=st=1719512048~exp=1719515648~hmac=8aee38f57dccd4c8ab5fb7791805af1b24b4fd2ccd1d7062b0e21509131645e5&w=1060'); */
+     background-size: cover;
+    z-index: -1;
+    /* opacity: 0.5; */
+}
+
+.manut-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.manut-logo {
+    width: 100px;
+    margin-bottom: 24px;
+}
+
+.manut-form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.manut-form-button {
+    width: 100%;
+}

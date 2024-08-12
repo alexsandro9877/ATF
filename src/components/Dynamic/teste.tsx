@@ -1,8 +1,10 @@
 
 import { Space, Table, Tag } from 'antd';
 import type { TableProps } from 'antd';
+import type { TableColumnsType } from "antd";
 
 interface DataType {
+ 
   key: string;
   name: string;
   age: number;
@@ -10,79 +12,62 @@ interface DataType {
   tags: string[];
 }
 
-const columns: TableProps<DataType>['columns'] = [
+interface Iwl {
+  codParceiro: number,
+  codPedido: string,
+  dataHoraCadastro: string,
+  numItem: number,
+  codProduto: number,
+  descProduto: string,
+  qtdProduto: number,
+  valorProduto: number,
+  valorDesconto: number,
+  valorTotal: number,
+  indicaPesoVariavel: boolean| false,
+  indisponivel: boolean|false,
+  desistencia: boolean|false
+}
+
+const columns: TableColumnsType<Iwl>= [
   {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
+    title: 'codParceiro',
+    dataIndex: 'codParceiro',
+    key: 'codParceiro',
     render: (text) => <a>{text}</a>,
   },
   {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
-  },
-  {
-    title: 'Tags',
-    key: 'tags',
-    dataIndex: 'tags',
-    render: (_, { tags }) => (
-      <>
-        {tags.map((tag) => {
-          let color = tag.length > 5 ? 'geekblue' : 'green';
-          if (tag === 'loser') {
-            color = 'volcano';
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
-  },
-  {
-    title: 'Action',
-    key: 'action',
-    render: (_, record) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
-  },
+    title: 'codPedido',
+    dataIndex: 'codPedido',
+    key: 'codPedido',
+    render: (text) => <a>{text}</a>,
+  }
 ];
 
-const data: DataType[] = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sydney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
-  },
-];
+const wl: Iwl[] = [{
+    codParceiro: 9,
+    codPedido: "17211-E536051018",
+    dataHoraCadastro: "2024-08-08T17:39:27.916-0300",
+    numItem: 9,
+    codProduto: 3244463,
+    descProduto: "REQUEIJÃO CREMOSO TRADICIONAL VIGOR COPO 200G",
+    qtdProduto: 1,
+    valorProduto: 7.89,
+    valorDesconto: 0,
+    valorTotal: 7.89,
+    indicaPesoVariavel: false,
+    indisponivel: false,
+    desistencia: false
+}]
 
-const Teste: React.FC = () => <Table columns={columns} dataSource={data} />;
 
-export default Teste;
+
+const TesteTabela: React.FC = () => 
+  <Table
+              columns={columns}
+              dataSource={wl}
+              //loading={isGetAccountsLoading}
+              scroll={{ x: 1200 }}
+            />
+  ;
+
+export default TesteTabela;

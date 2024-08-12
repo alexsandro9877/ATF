@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
-// import { Navigate } from 'react-router-dom';
-
+import { Navigate } from 'react-router-dom';
+import AuthUserStore from '../store/auth.store';
 
 interface PrivateRouteProps {
   children: ReactNode;
@@ -9,11 +9,11 @@ interface PrivateRouteProps {
 }
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ children, tela, role }) => {
-  console.log(tela + '' + role)
-  // const { statusAutenticacao,userAut } = AuthUserStore();
-  // if (!statusAutenticacao) {
-  //   return <Navigate to="/login" />;
-  // }
+  const { statusAutenticacao,userAut } = AuthUserStore();
+  //console.log(tela, role, userAut)
+  if (!statusAutenticacao) {
+    return <Navigate to="/login" />;
+  }
 
   // if (tela && !userAut[0].visibleRoutes.includes(tela)) {
   //   return <Navigate to="/unauthorized" />;

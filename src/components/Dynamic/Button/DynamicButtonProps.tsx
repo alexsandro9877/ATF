@@ -9,9 +9,10 @@ interface DynamicButtonProps {
   disabled?: boolean;
   name?: string;
   danger?: boolean;
+  loading?: boolean;
 }
 
-const DynamicButton: React.FC<DynamicButtonProps> = ({ danger, disabled, icon, onClick, title, name }) => {
+const DynamicButton: React.FC<DynamicButtonProps> = ({ danger, disabled, icon, onClick, title, name,loading }) => {
   const [tooltipVisible, setTooltipVisible] = useState(false);
 
   return (
@@ -22,7 +23,7 @@ const DynamicButton: React.FC<DynamicButtonProps> = ({ danger, disabled, icon, o
     >
       <Button
         type="text"
-        
+        loading={loading}
         shape="default"
         icon={icon}
         style={{ display: 'none', minWidth: 'fit-content', marginRight: 8 }}
