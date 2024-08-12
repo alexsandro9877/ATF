@@ -1,5 +1,5 @@
 
-import { Drawer, Button, Card, Row, Col, Avatar, Typography } from 'antd';
+import { Drawer, Button, Card, Row, Col, Avatar, Typography, Divider } from 'antd';
 import { SettingOutlined, LogoutOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 
@@ -52,6 +52,19 @@ const ProfileDrawer = ({ open, onClose, handleLogout }: IDrawer) => {
                         >
                             Sair
                         </Button>
+                    </Col>
+                </Row>
+                <Divider/>
+                <Row gutter={16} align="middle">
+                    <Col span={8} style={{ textAlign: 'center' }}>
+                    <Text strong style={{ fontSize: 18 }}>Adicionar infomações</Text>
+                        <br />
+                        <Text type="secondary">dicionar infomações</Text>
+                    </Col>
+                    <Col span={16}>
+                        <Text strong style={{ fontSize: 18 }}>dicionar infomações</Text>
+                        <br />
+                        <Text type="secondary">dicionar infomações</Text>
                     </Col>
                 </Row>
             </Card>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './manut.css';
+import './app.css';
 import { Outlet, useNavigate } from 'react-router-dom';
 import {
   ShoppingOutlined,
@@ -39,7 +39,7 @@ const menuItems = [
   { label: 'Parcerias', key: '/partnership', icon: <QuestionOutlined /> },
 ];
 
-const AppManut: React.FC = () => {
+const App: React.FC = () => {
   const navigate = useNavigate();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -162,4 +162,4 @@ const AppManut: React.FC = () => {
   );
 };
 
-export default AppManut;
+export default App;
