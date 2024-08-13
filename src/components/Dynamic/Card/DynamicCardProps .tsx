@@ -15,7 +15,7 @@ interface DynamicCardProps {
 
 const DynamicCard: React.FC<DynamicCardProps> = ({ title, content, actionsButton = [], extra, style }) => (
     <Card
-
+        //onTouchCancel={()=>onClose()} 
         title={title}
         extra={extra}
         style={{ borderRadius: '5px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)', ...style }}

@@ -20,7 +20,7 @@ const ProfileDrawer = ({ open, onClose, handleLogout, useAut }: IDrawer) => {
         return null; 
     }
 
-    const { accountId, picture, name, roles, visibleRoutes, email } = useAut[0];
+    const { accountId, id, picture, name, roles, visibleRoutes, email,azp } = useAut[0];
 
     return (
         <Drawer title="Perfil" onClose={onClose} open={open} bodyStyle={{ padding: 0 }}>
@@ -37,7 +37,7 @@ const ProfileDrawer = ({ open, onClose, handleLogout, useAut }: IDrawer) => {
                     <Col span={16}>
                         <Text strong style={{ fontSize: 18 }}>{name || ''}</Text>
                         <br />
-                        <Text type="secondary">{accountId || ''}</Text>
+                        <Text type="secondary">{id || ''}</Text>
                         <br />
                         <Text type="secondary">{email || ''}</Text>
                     </Col>
@@ -70,11 +70,26 @@ const ProfileDrawer = ({ open, onClose, handleLogout, useAut }: IDrawer) => {
                         <Text strong style={{ fontSize: 18 }}>Role</Text>
                         <br />
                         <Text type="secondary">{roles ? roles.join(", ") : ''}</Text>
+                        <br />
+                        <Text type="secondary">{azp ? azp : ''}</Text>
                     </Col>
                     <Col span={16}>
                         <Text strong style={{ fontSize: 18 }}>Acesso</Text>
                         <br />
                         <Text type="secondary">{visibleRoutes ? visibleRoutes.join(", ") : ''}</Text>
+                        <br />
+                
+                    </Col>
+                </Row>
+                <Divider/>
+                <Row gutter={16} align="middle">
+                  
+                    <Col span={16}>
+                    <Text strong style={{ fontSize: 18 }}>Cliente</Text>
+                        <br />
+                    <Text type="secondary">{accountId || ''}</Text>
+                    <br />
+                
                     </Col>
                 </Row>
             </Card>

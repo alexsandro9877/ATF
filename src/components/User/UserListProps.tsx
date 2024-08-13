@@ -1,71 +1,107 @@
-
-import { List, Avatar, Skeleton, Divider, Button, Space, Tag, Modal, Input } from 'antd';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
-import userStore from '../../store/user.store';
-import {IUser} from '../../modules/user.entity'
-import { useEffect, useState } from 'react';
-import AuthUserStore from '../../store/auth.store';
-
-
+import { List, Avatar, Skeleton, Divider, Space, Tag, Input, message } from "antd";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { useState, useEffect } from "react";
+import DynamicButton from "../Dynamic/Button/DynamicButtonProps";
+import DynamicModal from "../Dynamic/Modal/DynamicModalProps";
+import UserCreateEdit from "./UserForm";
+import { useDeleteUser, useGetUserAll } from "../../hooks/api";
+import AuthUserStore from "../../store/auth.store";
+import { useQueryClient } from "@tanstack/react-query";
+import { IUserResp } from "../../types/typeUserResp";
 
 const UserList = () => {
-  const { user,fetchUser,deleteUser } = userStore();
-  const [displayedItems, setDisplayedItems] = useState<IUser[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const [deleteItemId, setDeleteItemId] = useState<string | null>(null); 
-  const [modalVisible, setModalVisible] = useState(false); 
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
+  const [modalContent, setModalContent] = useState<React.ReactNode>(null);
+  const [modalTitle, setModalTitle] = useState("");
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [displayedItems, setDisplayedItems] = useState<IUserResp[]>([]);
   const { userAut } = AuthUserStore();
 
+  const { data: userData, isLoading: isGetUserLoading } = useGetUserAll(userAut[0].accountId);
+  
+  const queryClient = useQueryClient();
+  
+  const { mutate: deleteUser} = useDeleteUser({
+    
+    onSuccess: (data: any) => {
+      const successMessage = data.message ;
+      message.success(successMessage);
+         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-expect-error
+      queryClient.invalidateQueries('user');
+
+    },
+    onError: (error: any) => {
+      const errorMessage = error.response?.data?.message;
+      message.error(errorMessage);
+    }
+  });
+
   useEffect(() => {
-    fetchUser(userAut[0].accountId);
-}, [fetchUser, deleteItemId]);
+    if (userData) {
+      setDisplayedItems(userData);
+    }
+  }, [userData]);
 
-useEffect(() => {
-  setDisplayedItems(user);
-}, [user]);
+  const showModal = (
+    title: string,
+    content?: React.ReactNode,
+    on?: () => void
+  ) => {
+    on;
+    setModalTitle(title);
+    setModalContent(content);
+    setIsModalVisible(true);
+  };
 
-const loadMoreData = () => {
-  if (loading) {
-    return;
-  }
-  setLoading(true);
-  setTimeout(() => {
-    setLoading(false);
-  }, 500);
-};
- 
+  const closeModal = () => setIsModalVisible(false);
 
-  const  handleDelete = async (id: string) => {
-    setDeleteItemId(id); 
-    setModalVisible(true); // Exibe o modal de confirmação
+  const loadMoreData = () => {
+    if (isGetUserLoading || displayedItems.length >= filteredItems.length) {
+      return;
+    }
+
+    setTimeout(() => {
+      setDisplayedItems((prevItems) => [
+        ...prevItems,
+        ...filteredItems.slice(prevItems.length, prevItems.length + 10),
+      ]);
+    }, 500);
+  };
+
+  const handleDelete = async (Id: string) => {
+    if (Id) {
+        await deleteUser(Id);
+    }
   };
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
- 
 
-  const confirmDelete = async () => {
-    if (deleteItemId) {
-      await      deleteUser(deleteItemId);
-      setModalVisible(false); 
-      setDeleteItemId(null); 
-    }
-  };
+  const IconText = ({
+    icon,
+    text,
+  }: {
+    icon: React.ReactNode;
+    text?: number;
+  }) => (
+    <Space>
+      {icon} {text}
+    </Space>
+  );
 
-  const cancelDelete = () => {
-    setModalVisible(false); 
-    setDeleteItemId(null); 
-  };
+  const filteredItems = Array.isArray(userData)
+    ? userData.filter((item) =>
+        `${item.name.toLowerCase()} ${item.email.toLowerCase()}`.includes(
+          searchTerm.toLowerCase()
+        )
+      )
+    : [];
 
-  const filteredItems = Array.isArray(user)  
-  ? user.filter((item: IUser) =>`${item.name.toLowerCase()} ${item.email.toLowerCase()}`.includes(searchTerm.toLowerCase()))
-  :[];
-   
   return (
-    
     <InfiniteScroll
       dataLength={displayedItems.length}
       next={loadMoreData}
@@ -74,65 +110,74 @@ const loadMoreData = () => {
       endMessage={<Divider plain>Não há mais registros...</Divider>}
       scrollableTarget="scrollableDiv"
     >
-      <Input 
-          placeholder="Busca nome de usuario, email." 
-          value={searchTerm}
-          onChange={handleSearch}
-          style={{ marginBottom: 16 }}
-        />
+      <Input
+        placeholder="Busca nome de usuario, email."
+        value={searchTerm}
+        onChange={handleSearch}
+        style={{ marginBottom: 16 }}
+      />
       <List
-        dataSource={filteredItems.slice(0, displayedItems.length)}
+        dataSource={displayedItems}
         renderItem={(user) => (
           <List.Item
             key={user.id}
             style={{ marginBottom: 16 }}
-           
-            extra={ <Space size="middle">
-                <Button
-                  type="primary"
-                  icon={<EditOutlined />}
-                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  //@ts-expect-error
-                  onClick={() => handleEdit(String(user.id))}
-                />
-                <Button
-                  type="primary"
-                  danger
-                  icon={<DeleteOutlined />}
-                  onClick={() => handleDelete(String(user.id))}
-                />
-                
-              </Space>}
+            extra={
+              user.status ? (
+                <Tag color="green">Active</Tag>
+              ) : (
+                <Tag color="red">Inactive</Tag>
+              )
+            }
             actions={[
-              <Space size="small">
-                 {user.authMethods? <Tag color="green">Active</Tag> : <Tag color="red">Inactive</Tag>}
-              </Space>
+              <IconText
+                icon={
+                  <>
+                    <DynamicButton
+                      title="Editar"
+                      icon={<EditOutlined />}
+                      onClick={() =>
+                        showModal(
+                          "Editar Usuário",
+                          <UserCreateEdit
+                            initialValues={user}
+                            onClose={closeModal}
+                          />
+                        )
+                      }
+                    />
+                    |
+                    {userAut[0].id === user.id ? '':
+                    <DynamicButton
+                      title="Deletar"
+                      disabled ={userAut[0].azp === 'EDT'? false : true}
+                      danger
+                      icon={<DeleteOutlined />}
+                      onClick={()=>handleDelete(String(user.id))}
+                    />
+                    
+                    }
+                  </>
+                }
+              />,
             ]}
           >
             <List.Item.Meta
-              avatar={<Avatar src={user.picture}/>}
-            
+              avatar={<Avatar src={user.picture} />}
               title={user.name}
-              description={`Email: ${user.email} | Role : ${user.roles.join(",")}`}
+              description={`Email: ${user.email} | Role : ${user.roles.join(", ")} | azp :  ${user.azp}`}
             />
-           
-           
           </List.Item>
         )}
       />
-       <Modal
-          title="Confirmar Exclusão"
-          visible={modalVisible}
-          onOk={confirmDelete}
-          onCancel={cancelDelete}
-          okText="Confirmar"
-          cancelText="Cancelar"
-        >
-          <p>Tem certeza que deseja excluir este ?</p>
-        </Modal>
+      <DynamicModal
+        visible={isModalVisible}
+        onCancel={closeModal}
+        onClose={closeModal}
+        title={modalTitle}
+        content={modalContent}
+      />
     </InfiniteScroll>
-
-    
   );
 };
 

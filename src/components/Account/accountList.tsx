@@ -22,6 +22,7 @@ const AccountList = () => {
   const [editModalId, setEditModalId] = useState<string | null>(null);
   const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
   const [confirmLoading, setConfirmLoading] = useState(false);
+  
   useEffect(() => {
     fetchAccount();
 }, [fetchAccount]);
@@ -116,7 +117,7 @@ return (
           <List.Item.Meta 
             avatar={<Avatar src={item.customer.imagem[0]} />}
             title={item.name}
-            description={`Aplicação: ${item.aplication} | Acesso: ${item.routes.join(", ")} | Cliente: ${item.customer.name}`}
+            description={`Client: ${item.customerId} | Conta: ${item.id} | Aplicação: ${item.aplication} | Acesso: ${item.routes.join(", ")} | Cliente: ${item.customer.name}`}
           />
           <div>
             <Tag  color={item.aplication ? 'green' : 'red'}>
@@ -127,7 +128,12 @@ return (
       )}
     />
     <DynamicModal 
-    confirmLoading={confirmLoading}
+      confirmLoading={confirmLoading}
+      onCancel={()=>{
+        setModalVisible(false);
+        setEditModalId(null);
+        setDeleteItemId(null);
+      }}
       onClose={() => {
         setModalVisible(false);
         setEditModalId(null);

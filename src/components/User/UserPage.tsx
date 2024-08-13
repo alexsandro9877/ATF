@@ -4,9 +4,9 @@ import { PlusOutlined, DownloadOutlined, UserOutlined, EllipsisOutlined } from '
 import DynamicModal from '../Dynamic/Modal/DynamicModalProps';
 import DynamicButton from '../Dynamic/Button/DynamicButtonProps';
 import DynamicCard from '../Dynamic/Card/DynamicCardProps ';
-
 import UserList from './UserListProps';
-import UserCreate from './UserForm';
+import UserCreateEdit from './UserForm';
+import AuthUserStore from '../../store/auth.store';
 
 const { Content } = Layout;
 
@@ -15,6 +15,7 @@ const UserPage = () => {
     const [modalContent, setModalContent] = useState<React.ReactNode>(null);
     const [modalTitle, setModalTitle] = useState('');
     const [isDownloadDisabled, setIsDownloadDisabled] = useState(false);
+    const { userAut } = AuthUserStore();
 
     useEffect(() => {
             setIsDownloadDisabled(true);
@@ -25,15 +26,26 @@ const UserPage = () => {
         setModalContent(content);
         setIsModalVisible(true);
     };
+   const closeModal = () => setIsModalVisible(false);
 
-    const closeModal = () => setIsModalVisible(false);
-
+    const IconText = ({
+        icon,
+        text,
+      }: {
+        icon: React.ReactNode;
+        text?: number;
+      }) => (
+        <Space>
+          {icon} {text}
+        </Space>
+      );
+ 
     // Menu que aparece quando a tela fica pequena
     const menuItems = [
         {
             key: "1",
             label: (
-                <span onClick={() => showModal('Adicionar Usuário', <UserCreate/>)}>
+                <span onClick={() => showModal('Adicionar Usuário', <UserCreateEdit onClose={()=> setIsModalVisible(false)}/>)}>
                     <PlusOutlined /> Adicionar
                 </span>
             ),
@@ -73,35 +85,41 @@ const UserPage = () => {
                         content={<UserList />}
                         //actionsButton={actionsButton}
                         extra={
-                            <Space.Compact size="large">
-                            {/* Chamar meu botao dinamico */}
-                              <DynamicButton 
-                                  icon ={ <PlusOutlined />}
-                                   onClick={() => showModal('Adicionar Usuário', <UserCreate/>)} 
+                            <>
+                           <IconText icon={
+                            <DynamicButton 
+                                   icon ={ <PlusOutlined />}
+                                   
+                                   onClick={() => showModal('Adicionar Usuário', <UserCreateEdit  onClose={()=>closeModal()}/>)} 
                                    title='Adicionar Usuário'
-                                   disabled = {false}
+                                   disabled ={userAut[0].azp === 'EDT'? false : true}
                                    key={1}
                                    />
-                                     <DynamicButton 
-                                  icon ={ <DownloadOutlined />}
-                                   onClick={() => console.log('Baixar Excel Usuário', <div>Formulário</div>)} 
-                                   title='Baixar Excel Usuário'
-                                   disabled = {isDownloadDisabled}
-                                   key={1}
-                                   />
+                           } />
+                           <IconText icon={
+                             <DynamicButton 
+                                    icon ={ <DownloadOutlined />}
+                                    onClick={() => console.log('Baixar Excel Usuário', <div>Formulário</div>)} 
+                                    title='Baixar Excel Usuário'
+                                    disabled = {isDownloadDisabled}
+                                    key={1}
+                              />
+                           } />
+                           
                            {/* Chamar meu menu retratio */}
-                           <Dropdown overlay={menu} trigger={['click']} className="dropdown-menu">
+                            <Dropdown overlay={menu} trigger={['click']} className="dropdown-menu">
                                 <Button icon={<EllipsisOutlined />} />
                             </Dropdown>
-                          </Space.Compact>
+                            </>
                         }
                         style={{ borderRadius: '10px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}
                     />
                   
                 </Space>
-                {/* Chamar meu modal dinamico */}
+              
                 <DynamicModal
                     visible={isModalVisible}
+                    onCancel={closeModal}
                     onClose={closeModal}
                     title={modalTitle}
                     content={modalContent}

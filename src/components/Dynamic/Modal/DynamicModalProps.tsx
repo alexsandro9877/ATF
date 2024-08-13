@@ -17,7 +17,7 @@ interface DynamicModalProps {
 const DynamicModal: React.FC<DynamicModalProps> = ({ visible, onClose,onOk, title, icon, onCancel, content,confirmLoading }) => {
     return (
         <Modal
-            width={'35%'}
+            
             centered
             destroyOnClose
             onClose={onClose}

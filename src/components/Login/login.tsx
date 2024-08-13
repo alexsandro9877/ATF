@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, Form, Button, Spin, Row, Col, message } from 'antd';
+import { Input, Form, Button,  Row, Col, message } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import './login.css';
 import { useNavigate } from 'react-router-dom';
@@ -77,11 +77,11 @@ const Login: React.FC = () => {
                         </Form.Item>
                     </Form>
 
-                    {loading && (
+                    {/* {loading && (
                         <div className="loading-spinner">
                             <Spin tip="Logging in..." />
                         </div>
-                    )}
+                    )} */}
                 </Col>
             </Row>
         </div>

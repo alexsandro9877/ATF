@@ -94,6 +94,7 @@ const AccountPage = () => {
                 <DynamicModal
                     visible={isModalVisible}
                     onClose={closeModal}
+                    onCancel={closeModal}
                     title={modalTitle}
                     content={modalContent}
                 />

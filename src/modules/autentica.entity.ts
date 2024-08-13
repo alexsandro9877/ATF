@@ -16,19 +16,9 @@ export interface IUser {
   roles: string[];
   permissions: string[];
   visibleRoutes: string[];
-  theme: Theme[];
 }
 
-interface Theme {
-  id: string;
-  colorPrimary: string;
-  colorInfo: string;
-  colorTextBase: string;
-  colorBgBase: string;
-  colorTextTertiary: string;
-  colorTextSecondary: string;
-  userId: string;
-}
+
 
 export interface DecodedToken {
   exp: number;
@@ -53,6 +43,8 @@ export class AuthUserStore {
   access_token: { token: string } = { token: "" };
   refreshToken: string = "";
   expires_in: number = 0;
+  accountId: string = '';
+  azp: string = '';
 
   constructor() {
     makeObservable(this, {
@@ -86,6 +78,8 @@ export class AuthUserStore {
       this.expires_in = loginResponse.data.expires_in
       this.userAut = [userResponse.data];
       this.statusAutenticacao = userResponse.data.status;
+      this.accountId = userResponse.data.accountId;
+      this.azp = userResponse.data.azp;
       return { success: true };
 
     } catch (error: any) {

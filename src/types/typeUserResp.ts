@@ -35,7 +35,7 @@ type VisibleRoute =
   | "/404"
   | "/partnership";
 
-  export interface IUserResponse {
+  export interface IUserResp {
   id: string;
   name: string;
   email: string;
@@ -44,10 +44,10 @@ type VisibleRoute =
   picture: string;
   status: boolean;
   azp: string;
-  createdAt: string; // ISO date string
-  updatedAt: string; // ISO date string
+  createdAt?: string; // ISO date string
+  updatedAt?: string; // ISO date string
   accountId: string;
   roles: UserRole[];
   permissions: UserPermission[];
   visibleRoutes: VisibleRoute[];
-};
+}

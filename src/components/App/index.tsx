@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+import { 
+  // useEffect, 
+  useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import {
   ShoppingOutlined,
@@ -9,12 +11,14 @@ import {
   ContactsOutlined,
   ContainerOutlined,
 } from '@ant-design/icons';
-import { Layout, Avatar, Modal, theme, AutoComplete, Input, Popover, message } from 'antd';
+import { Layout, Avatar, Modal, theme, AutoComplete, Input, Popover, 
+  // message
+ } from 'antd';
 import AuthUserStore from '../../store/auth.store';
 import ProfileDrawer from './appProfileDrawer';
 import './app.css';
-import { useQueryClient } from '@tanstack/react-query';
-import { useUserEmail } from '../../hooks/api';
+// import { useQueryClient } from '@tanstack/react-query';
+// import { useUserEmail } from '../../hooks/api';
 
 const { Header, Content, Footer } = Layout;
 
@@ -45,42 +49,42 @@ const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const { userAut, logOut } = AuthUserStore();
 
- const queryClient = useQueryClient();
+//  const queryClient = useQueryClient();
 
-  const { mutate: body} = useUserEmail({
+//   const { mutate: body} = useUserEmail({
     
-    onSuccess: (data: any) => {
-         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  //@ts-expect-error
-      queryClient.invalidateQueries('user');
-      //fetchUser();
-       const successMessage = data.message;
-      message.success(successMessage);
-    },
-    onError: (error: any) => {
-      const errorMessage = error.response?.data?.message || 'Falha ao criar site';
-      message.error('Sessão expirada. Por favor, faça login novamente.');
-      logOut();
-      message.error(errorMessage);
-    }
-  });
+//     onSuccess: (data: any) => {
+//          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//                   //@ts-expect-error
+//       queryClient.invalidateQueries('user');
+//       //fetchUser();
+//        const successMessage = data.message;
+//       message.success(successMessage);
+//     },
+//     onError: (error: any) => {
+//       const errorMessage = error.response?.data?.message || 'Falha ao criar site';
+//       message.error('Sessão expirada. Por favor, faça login novamente.');
+//       logOut();
+//       message.error(errorMessage);
+//     }
+//   });
 
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      body({email: userAut[0].email})
-      // if (!statusAutenticacao) {
-      //   fetchUser();
-      // }
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     body({email: userAut[0].email})
+  //     // if (!statusAutenticacao) {
+  //     //   fetchUser();
+  //     // }
      
-      // if (!localStorage.getItem('authToken')) {
-      //   message.error('Sessão expirada. Por favor, faça login novamente.');
-      //   navigate('/login');
-      // }
-    }, 10000);
+  //     // if (!localStorage.getItem('authToken')) {
+  //     //   message.error('Sessão expirada. Por favor, faça login novamente.');
+  //     //   navigate('/login');
+  //     // }
+  //   }, 10000);
   
-    return () => clearInterval(intervalId);
-  }, [userAut]);
+  //   return () => clearInterval(intervalId);
+  // }, [userAut]);
 
   const {
     token: { colorBgBase },

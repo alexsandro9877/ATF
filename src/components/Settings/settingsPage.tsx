@@ -19,11 +19,11 @@ const SettingsPage: React.FC = () => {
       <DynamicCard
         title={"Configurações"}
         content={
-          <Descriptions bordered>
-            <Descriptions.Item label="Profile Picture">
-              <img src={user.picture} alt="Profile" style={{ width: 100, height: 100, borderRadius: '50%' }} />
+          <Descriptions bordered layout='vertical' size='small'column={2}>
+            <Descriptions.Item label="Profile Picture" >
+              <img src={user.picture} alt="Profile" style={{ width: 100, height: 100, borderRadius: '10%' }} />
             </Descriptions.Item>
-            <Descriptions.Item label="ID">{user.id}</Descriptions.Item>
+       
             <Descriptions.Item label="Name">{user.name}</Descriptions.Item>
             <Descriptions.Item label="Email">{user.email}</Descriptions.Item>
             <Descriptions.Item label="Phone">{user.phone}</Descriptions.Item>
@@ -32,26 +32,23 @@ const SettingsPage: React.FC = () => {
             </Descriptions.Item>
             <Descriptions.Item label="Created At">{new Date(user.createdAt).toLocaleString()}</Descriptions.Item>
             <Descriptions.Item label="Updated At">{new Date(user.updatedAt).toLocaleString()}</Descriptions.Item>
-            <Descriptions.Item label="Account ID">{user.accountId}</Descriptions.Item>
+            <Descriptions.Item label="Client ID">{user.accountId}</Descriptions.Item>
             <Descriptions.Item label="Roles">
               {user.roles.map(role => <Tag color="blue" key={role}>{role}</Tag>)}
             </Descriptions.Item>
             <Descriptions.Item label="Permissions">
               {user.permissions.map(permission => <Tag color="purple" key={permission}>{permission}</Tag>)}
             </Descriptions.Item>
+            
+            <Descriptions.Item label="Acesso">
+            {<Tag color="red" key={user.azp}>{user.azp}</Tag>}
+            </Descriptions.Item>
+            <Descriptions.Item label="ID">{user.id}</Descriptions.Item>
             <Descriptions.Item label="Visible Routes">
               {user.visibleRoutes.map(route => <Tag color="orange" key={route}>{route}</Tag>)}
             </Descriptions.Item>
-            <Descriptions.Item label="Primary Color">
-              <div>Cor</div>
-              {/* <ColorPicker value={user.theme[0].colorPrimary} /> */}
-            </Descriptions.Item>
-            <Descriptions.Item label="Background Color">
-            <div>Cor</div>
-
-              {/* <ColorPicker value={user.theme[0].colorBgBase} /> */}
-            </Descriptions.Item>
           </Descriptions>
+          
         }
       />
     </div>

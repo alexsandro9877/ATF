@@ -1,15 +1,16 @@
 import {create} from 'zustand';
-import { CUser,IUser, IUserCreate } from '../modules/user.entity';
+import { CUser } from '../modules/user.entity';
+import { IUserResp } from '../types/typeUserResp';
 
 
 const cUser = new CUser(); 
 
 interface userState {
-    user: IUser[];
+    user: IUserResp[];
     fetchUser: (id : string) => Promise<void>;
-    addUser: (user: IUserCreate) => Promise<void>;
+    addUser: (user: IUserResp) => Promise<void>;
     deleteUser: (id: string) => Promise<void>;
-    editUser: (id: number, newUser: IUser) => Promise<void>;
+    editUser: (id: number, newUser: IUserResp) => Promise<void>;
 }
 
 const userStore = create<userState>((set) => ({

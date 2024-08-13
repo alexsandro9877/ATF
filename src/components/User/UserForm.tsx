@@ -1,65 +1,67 @@
 
-const initialValues = {
-  id: "12345",
-  name: "Alex Sandro",
-  email: "alexSandro@example.com",
-  phone: "+5511999999999",
-  password: "senhaSegura123",
-  picture: "https://lh3.googleusercontent.com/a/ACg8ocKfYW81V2VbJPxTAvqMLn2xv-Jtf-7kUS90xCDEVORRMZcihWRz=s96-c",
-  authMethods: {
-    email: {
-      enabled: true,
-      email: "alexSandro@example.com"
-    },
-    phone: {
-      enabled: true,
-      phoneNumber: "+5511999999999",
-      otpEnabled: true
-    },
-    social: {
-      enabled: true,
-      providers: {
-        google: {
-          enabled: true,
-          providerId: "google-oauth2"
-        },
-        facebook: {
-          enabled: true,
-          providerId: "facebook"
-        }
-      }
-    }
-  },
-  roles: [
-    "user",
-    "admin"
-  ],
-  permissions: [
-    "/", "/user", "/product", "/dashboard", "/userMeli", "/settings"
-  ],
-  visibleRoutes: [
-    "/", "/user", "/product", "/item", "/dashboard", "/view/:id", 
-    "/edit/:id/desc_prod", "/edit/:id/images", "/edit/:id/prices", 
-    "/edit/:id/measures", "/edit/:id/ean_codes", "/listItemForm", 
-    "/listItem", "/AddItemForm", "/userMeli", "/settings"
-  ],
-  tema: {
-    colorPrimary: "#323841",
-    colorInfo: "#323841",
-    colorTextBase: "#252323",
-    colorBgBase: "#ffffff",
-    colorTextTertiary: "#74717173",
-    colorTextSecondary: "#363333a6"
-  },
-  account: {
-    id: "a121515151",
-    logo: "https://lh3.googleusercontent.com/a/ACg8ocKfYW81V2VbJPxTAvqMLn2xv-Jtf-7kUS90xCDEVORRMZcihWRz=s96-c"
-  }
-};
-import { useState } from 'react';
-import { Form, Input, Button, Card, Switch, Checkbox, message, ColorPicker } from 'antd';
+// const initialValuesAdd = {
+//   name: "Alex Sandrodss",
+//   email: "tests@testde.com",
+//   phone: "(11)11111-1111",
+//   password: "as1d23as1",
+//  picture: "https://api.dicebear.com/9.x/lorelei/svg?flip=true",
+//    status:true,
+//   azp:"",
+//   roles: [
+//       "user","admin"
+//   ],
+//   permissions: [
+//           "/user",
+//       "/product",
+//       "/item",
+//       "/dashboard",
+//       "/userMeli",
+//       "/customer",
+//       "/account",
+//       "/teste",
+//       "/dashboard",
+//       "/404",
+//       "/partnership"
+
+//   ],
+//   visibleRoutes: [
+//       "/",
+//       "/user",
+//       "/product",
+//       "/item",
+//       "/dashboard",
+//       "/view/:id",
+//       "/edit/:id/desc_prod",
+//       "/edit/:id/images",
+//       "/edit/:id/prices",
+//       "/edit/:id/measures",
+//       "/edit/:id/ean_codes",
+//       "/listItemForm",
+//       "/listItem",
+//       "/AddItemForm",
+//       "/userMeli",
+//        "/settings",
+//         "/customer",
+//       "/account",
+//       "/teste",
+//       "/dashboard",
+//       "/404",
+//       "/partnership"
+//   ],
+//   accountId: "6697df8c65a0d3616b98d2d9"
+// };
+import { useEffect, useState } from 'react';
+import { Form, Input, Button,   Checkbox, message } from 'antd';
 import { SaveOutlined } from '@ant-design/icons';
 import { MaskedInput } from 'antd-mask-input';
+
+import { useQueryClient } from '@tanstack/react-query';
+import { usePostUser } from '../../hooks/api';
+import { IUserCreated } from '../../types/typeUserPost';
+import AuthUserStore from '../../store/auth.store';
+import { IUserResp } from '../../types/typeUserResp';
+
+
 
 const visibleRoutesOptions = [
   '/', '/user', '/product', '/item', '/dashboard', '/view/:id', 
@@ -68,9 +70,45 @@ const visibleRoutesOptions = [
   '/listItem', '/AddItemForm', '/userMeli', '/settings'
 ];
 
-const UserCreate = () => {
+interface CreateUserFormProps {
+  initialValues?: IUserResp; 
+  onClose: () => void; 
+}
+
+
+const UserCreateEdit :React.FC<CreateUserFormProps> = ({onClose, initialValues})  => {
   const [form] = Form.useForm();
   const [isEditing, setIsEditing] = useState(false);
+  const { userAut } = AuthUserStore();
+
+
+  const queryClient = useQueryClient();
+  
+  const { mutate: postUser} = usePostUser({
+    
+    onSuccess: (data: any) => {
+      const successMessage = data.message || 'Site criado com sucesso';
+      message.success(successMessage);
+         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-expect-error
+      queryClient.invalidateQueries('user');
+      form.resetFields();
+    },
+    onError: (error: any) => {
+      const errorMessage = error.response?.data?.message || 'Falha ao criar site';
+      message.error(errorMessage);
+    }
+  });
+
+
+  useEffect(() => {
+    if (initialValues) {
+      form.setFieldsValue(initialValues);
+    }
+    
+    setIsEditing(userAut[0].azp === 'EDT' ? true : false)
+  }, [initialValues, form]);
+  
 
   // Função para selecionar todas as rotas visíveis
   const selectAllVisibleRoutes = () => {
@@ -79,41 +117,28 @@ const UserCreate = () => {
     });
   };
 
+ 
   const onSave = () => {
     form.validateFields()
       .then(values => {
-        const { email, phone, picture, name, password, roles, permissions, visibleRoutes, tema } = values;
-
-        const payload = {
-          user: {
-            id: "12345",
-            name,
+        const { email, phone, picture, name, password, roles, permissions, visibleRoutes,  accountId } = values
+        const payload: IUserCreated = {
+          
+          azp: 'CON',
+          status: false,  
+          name,
             email,
             phone,
             password,
             picture,
-            authMethods: {
-              email: { enabled: true, email },
-              phone: { enabled: true, phoneNumber: phone, otpEnabled: true },
-              social: {
-                enabled: true,
-                providers: {
-                  google: { enabled: true, providerId: 'google-oauth2' },
-                  facebook: { enabled: true, providerId: 'facebook' }
-                }
-              }
-            },
             roles,
             permissions,
             visibleRoutes,
-            tema,
-            account: { id: "11111", logo: picture },
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString()
-          }
+            accountId: accountId
+          
         };
-
-        console.log('Success:', payload);
+        initialValues ? console.log({...values, id: initialValues.id}) :  postUser(payload)
+        onClose();
         message.success(`Usuário ${name} cadastrado com sucesso!`);
         form.resetFields();
       })
@@ -121,6 +146,7 @@ const UserCreate = () => {
         console.log('Validate Failed:', info);
       });
   };
+  
   // const onSave = () => {
   //   form.validateFields()
   //     .then(values => {
@@ -134,8 +160,11 @@ const UserCreate = () => {
   // };
 
   return (
-    <Card title="Criar usuário" extra={<Button type="primary" icon={<SaveOutlined />} onClick={onSave}>Salvar</Button>}>
-      <Form form={form} layout="vertical" initialValues={initialValues}>
+      <Form form={form} 
+            layout="vertical" 
+            initialValues={initialValues }
+        >
+          
         <Form.Item
           name="name"
           label="Nome"
@@ -171,17 +200,7 @@ const UserCreate = () => {
         >
           <Input disabled={!isEditing} />
         </Form.Item>
-        <Form.Item label="Métodos de Autenticação">
-          <Form.Item name={['authMethods', 'email', 'enabled']} label="Email Habilitado" valuePropName="checked" noStyle>
-            <Switch disabled={!isEditing} /> <span style={{ marginLeft: 8 }}> Email </span>
-          </Form.Item>
-          <Form.Item name={['authMethods', 'phone', 'enabled']} label="Telefone Habilitado" valuePropName="checked" noStyle>
-            <Switch disabled={!isEditing} /> <span style={{ marginLeft: 8 }}> Telefone </span>
-          </Form.Item>
-          <Form.Item name={['authMethods', 'social', 'enabled']} label="Social Habilitado" valuePropName="checked" noStyle>
-            <Switch disabled={!isEditing} /> <span style={{ marginLeft: 8 }}> Google </span>
-          </Form.Item>
-        </Form.Item>
+       
         <Form.Item
           name="roles"
           label="Funções"
@@ -211,70 +230,21 @@ const UserCreate = () => {
           <Checkbox.Group options={visibleRoutesOptions} disabled={!isEditing} />
         </Form.Item>
         <Form.Item
-          name={['account', 'id']}
+          name={['accountId']}
           label="ID da Conta"
-          rules={[{ required: true, message: "Por favor, insira o ID da conta!" }]}
+          initialValue={userAut[0].accountId? userAut[0].accountId :'' }
         >
-          <Input disabled />
+          {userAut[0].accountId?  <Input disabled />:<Input /> }
+         
         </Form.Item>
 
-        <Form.Item
-          name={['account', 'logo']}
-          label="ID da logo"
-          rules={[{ required: true, message: "Por favor, insira o ID da conta!" }]}
-        >
-           <Input />
-        </Form.Item>
-        <Form.Item
-          name={['tema', 'colorPrimary']}
-          label="Cor Primária"
-          rules={[{ required: true, message: "Por favor, insira a cor primária!" }]}
-        >
-     <ColorPicker disabled={true} />
-        </Form.Item>
-        <Form.Item
-          name={['tema', 'colorInfo']}
-          label="Cor de Informação"
-          rules={[{ required: true, message: "Por favor, insira a cor de informação!" }]}
-        >
-     <ColorPicker disabled={true} />
-        </Form.Item>
-        <Form.Item
-          name={['tema', 'colorTextBase']}
-          label="Cor Base do Texto"
-          rules={[{ required: true, message: "Por favor, insira a cor base do texto!" }]}
-        >
-          <ColorPicker disabled={true} />
-        </Form.Item>
-        <Form.Item
-          name={['tema', 'colorBgBase']}
-          label="Cor Base de Fundo"
-          rules={[{ required: true, message: "Por favor, insira a cor base de fundo!" }]}
-        >
-          <ColorPicker disabled={true} />
-        </Form.Item>
-        <Form.Item
-          name={['tema', 'colorTextTertiary']}
-          label="Cor de Texto Terciário"
-          rules={[{ required: true, message: "Por favor, insira a cor de texto terciário!" }]}
-        >
-   <ColorPicker disabled={true} />
-        </Form.Item>
-        <Form.Item
-          name={['tema', 'colorTextSecondary']}
-          label="Cor de Texto Secundário"
-          rules={[{ required: true, message: "Por favor, insira a cor de texto secundário!" }]}
-        >
-       <ColorPicker disabled={true} />
-        </Form.Item>
+      
         <Form.Item>
-          <Button type="primary" onClick={() => setIsEditing(!isEditing)}>
-            {isEditing ? 'Cancelar Edição' : 'Editar'}
-          </Button>
+          {isEditing ? <Button type="primary" icon={<SaveOutlined />} onClick={onSave}>Salvar</Button> : '' }
         </Form.Item>
       </Form>
-    </Card>
+    
   );
 };
 
-export default UserCreate;
+export default UserCreateEdit;
