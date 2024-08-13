@@ -32,7 +32,8 @@ const Login: React.FC = () => {
                 <Col xs={24} sm={24} md={16} lg={12} className="login-image" />
                 <Col xs={24} sm={24} md={8} lg={6} className="login-form-container">
                     <img
-                        src="./src/assets/logoaR.png" 
+                        src={'./src/assets/logoaR.png'} 
+          
                         alt="Logo"
                         className="login-logo"
                     />
