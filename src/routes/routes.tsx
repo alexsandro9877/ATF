@@ -13,6 +13,7 @@ import AccountPage from '../components/Account/accountPage';
 import CustomerPage from '../components/Customer/customerPage';
 import UserPage from '../components/User/UserPage';
 import SettingsPage from '../components/Settings/settingsPage';
+import AgendaPage from '../components/App/agenda';
 
 const router = createBrowserRouter([
   {path: "/",    element: (<PrivateRoute><App /></PrivateRoute>),//Elemento principal
@@ -29,12 +30,13 @@ const router = createBrowserRouter([
       // {        path: "site", element: (<PrivateRoute tela='/site' ><Site /></PrivateRoute>),},
         //Principal
         // {        path: "settings",           element: (          <PrivateRoute tela='/settings' role='admin'><>sd</>          </PrivateRoute>),},
+        
         //Cliente
         {        path: "customer",           element: (          <PrivateRoute tela='/customer' >            <CustomerPage/>           </PrivateRoute>),},
         //Conta
         {        path: "account",            element: (          <PrivateRoute tela='/account' >            <AccountPage/>            </PrivateRoute>),},
         //Parceria
-        // {        path: "partnership",        element: (          <PrivateRoute tela='/partnership' >           <PedidoIfood/>               </PrivateRoute>),},
+         {        path: "partnership",        element: (          <PrivateRoute tela='/partnership' >           <AgendaPage/>               </PrivateRoute>),},
         //  //Teste
         {        path: "/settings",         element: (          <PrivateRoute tela='/settings' >              <SettingsPage/>             </PrivateRoute>),},
         // // Para teste
