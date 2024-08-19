@@ -22,7 +22,19 @@ html, body {
     object-fit: cover;
     z-index: -2;
 }
-
+.login-logo {
+    margin-bottom: 20px;
+    max-width: 100px;
+    animation: rotate 4s linear infinite;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 .manut-overlay {
     position: absolute;
     top: 0;

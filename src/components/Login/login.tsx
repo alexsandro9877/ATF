@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Input, Form, Button,  Row, Col, message } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { Input, Form, Button, Row, Col, message, Checkbox } from 'antd';
+import { UserOutlined
+    // , LockOutlined
+ } from '@ant-design/icons';
 import './login.css';
 import { useNavigate } from 'react-router-dom';
 import AuthUserStore from '../../store/auth.store';
@@ -29,14 +31,17 @@ const Login: React.FC = () => {
     return (
         <div className="login-container">
             <Row justify="center" align="middle" className="login-content">
-                <Col xs={24} sm={24} md={16} lg={12} className="login-image" />
-                <Col xs={24} sm={24} md={8} lg={6} className="login-form-container">
-                    <img
-                        src={'https://i.pinimg.com/originals/6e/8a/fd/6e8afd1bf5993ae1f2631e2909b86cf7.jpg'} 
-          
-                        alt="Logo"
-                        className="login-logo"
-                    />
+                {/* Lado Esquerdo: Texto de boas-vindas */}
+                <Col xs={24} sm={24} md={12} className="login-left">
+                    <div className="welcome-text">
+                        <img src="../src/assets/logoaR.png" alt="Logo" className="login-logo" />
+                        <h1>Olá, seja bem-vindo!</h1>
+                        <p>É sempre  possível melhor</p>
+                    </div>
+                </Col>
+                
+                {/* Lado Direito: Formulário de Login */}
+                <Col xs={24} sm={24} md={12} className="login-right">
                     <Form
                         name="login_form"
                         className="login-form"
@@ -53,17 +58,24 @@ const Login: React.FC = () => {
                                 aria-label="Nome de usuário"
                             />
                         </Form.Item>
-                        {/* 
-                        <Form.Item
+                        {/* <Form.Item
                             name="password"
                             rules={[{ required: true, message: 'Por favor, insira sua senha!' }]}
                         >
                             <Input.Password
+                                prefix={<LockOutlined className="site-form-item-icon" />}
                                 placeholder="Senha"
                                 aria-label="Senha"
                             />
                         </Form.Item> */}
-
+                        <Form.Item>
+                            <Form.Item name="remember" valuePropName="checked" noStyle>
+                                <Checkbox>Lembrar-me</Checkbox>
+                            </Form.Item>
+                            <a className="login-form-forgot" href="">
+                                Esqueceu sua senha?
+                            </a>
+                        </Form.Item>
                         <Form.Item>
                             <Button
                                 type="primary"
@@ -72,16 +84,19 @@ const Login: React.FC = () => {
                                 loading={loading}
                                 disabled={loading}
                             >
-                                Log in
+                                
+                                    Conecte-se
+                            </Button>
+                            <Button type="default" className="sign-up-button">
+                                   Inscrever-se
                             </Button>
                         </Form.Item>
                     </Form>
-
-                    {/* {loading && (
-                        <div className="loading-spinner">
-                            <Spin tip="Logging in..." />
-                        </div>
-                    )} */}
+                    <div className="social-icons">
+                        <a href="#"><i className="fab fa-facebook-f"></i></a>
+                        <a href="#"><i className="fab fa-twitter"></i></a>
+                        <a href="#"><i className="fab fa-instagram"></i></a>
+                    </div>
                 </Col>
             </Row>
         </div>

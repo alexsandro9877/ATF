@@ -37,6 +37,7 @@ const getAuthToken = () => localStorage.getItem('refreshToken');
 
 export const api = axios.create({
   baseURL: apiUrl,
+  timeout: 25000,
   headers: {
     'Content-Type': 'application/json'
   }
