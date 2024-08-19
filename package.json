@@ -26,6 +26,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-rnd": "^10.4.11",
     "react-router-dom": "^6.26.0",
+    "xlsx": "^0.18.5",
     "zustand": "^4.5.2"
   },
   "devDependencies": {

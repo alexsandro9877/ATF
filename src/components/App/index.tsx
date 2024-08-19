@@ -31,7 +31,7 @@ const menuItems = [
   { label: 'CarrosselForm', key: '/CarrosselForm', icon: <QuestionOutlined /> },
   { label: 'teste', key: '/teste', icon: <SettingOutlined /> },
   { label: 'Produto', key: '/product', icon: <ShoppingOutlined /> },
-  { label: 'Mercado', key: '/userMeli', icon: <ShoppingOutlined /> },
+  { label: 'Mercado Livre', key: '/userMeli', icon: <ShoppingOutlined /> },
   { label: 'Usuário', key: '/user', icon: <UserOutlined /> },
   { label: 'Cliente', key: '/customer', icon: <ContainerOutlined /> },
   { label: 'Conta', key: '/account', icon: <ContactsOutlined /> },

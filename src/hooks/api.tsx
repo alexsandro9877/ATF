@@ -6,6 +6,7 @@ import {
   useGenericPut,
 } from "./useQuery";
 import { IUserCreated } from "../types/typeUserPost";
+import { IRequestApi } from "../components/Meli";
 
 type UseGenericPostOptions<TData, TVariables> = UseMutationOptions<  TData,  unknown,  TVariables>;
 type UseGenericDeleteOptions<TData, TVariables> = UseMutationOptions<  TData,  unknown,  TVariables>;
@@ -94,6 +95,16 @@ export const useDeleteSite = (  options?: UseGenericDeleteOptions<SiteData, Dele
   return useGenericDelete<SiteData, DeleteSiteVariables>(
     "/sites",
     "sites",
+    options
+  );
+};
+
+
+
+export const useGetMercadoLivreWeb = (  options?: UseGenericPostOptions<IRequestApi, IRequestApi>) => {
+  return useGenericPost<IRequestApi, IRequestApi>(
+    "/referenceId",
+    "mercadoLivreWeb",
     options
   );
 };

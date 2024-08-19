@@ -14,6 +14,7 @@ import CustomerPage from '../components/Customer/customerPage';
 import UserPage from '../components/User/UserPage';
 import SettingsPage from '../components/Settings/settingsPage';
 import AgendaPage from '../components/App/agenda';
+import UserMeli from '../components/Meli';
 
 const router = createBrowserRouter([
   {path: "/",    element: (<PrivateRoute><App /></PrivateRoute>),//Elemento principal
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
         // {        path: "settings",           element: (          <PrivateRoute tela='/settings' role='admin'><>sd</>          </PrivateRoute>),},
         
         //Cliente
+        {        path: "userMeli",           element: (          <PrivateRoute tela='/userMeli' >            <UserMeli/>           </PrivateRoute>),},
         {        path: "customer",           element: (          <PrivateRoute tela='/customer' >            <CustomerPage/>           </PrivateRoute>),},
         //Conta
         {        path: "account",            element: (          <PrivateRoute tela='/account' >            <AccountPage/>            </PrivateRoute>),},
