@@ -142,7 +142,7 @@ const App: React.FC = () => {
       <Header style={{ background: colorBgBase, padding: 0 }}>
         <div className="header-container">
           <div className="header-left">
-            <img src="../src/assets/logoaR.png" alt="Logo" className="login-logo" />
+            <img src="../src/assets/logoaR.png" alt="Logo" />
             <AutoComplete
               style={{ width: 200 }}
               options={options}

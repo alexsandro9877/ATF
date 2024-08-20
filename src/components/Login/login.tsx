@@ -32,16 +32,27 @@ const Login: React.FC = () => {
         <div className="login-container">
             <Row justify="center" align="middle" className="login-content">
                 {/* Lado Esquerdo: Texto de boas-vindas */}
+                {/* <Col xs={24} sm={24} md={16} lg={12} className="login-image" /> */}
                 <Col xs={24} sm={24} md={12} className="login-left">
                     <div className="welcome-text">
-                        <img src="../src/assets/logoaR.png" alt="Logo" className="login-logo" />
-                        <h1>Olá, seja bem-vindo!</h1>
-                        <p>É sempre  possível melhor</p>
+                     
+                        {/* <img src="../src/assets/logoaR.png" alt="Logo" className="login-logo" /> */}
+                         
+                        <h1>AutomateFull</h1>
+                        <p>É sempre  possível melhorar</p>
+                        
                     </div>
                 </Col>
                 
                 {/* Lado Direito: Formulário de Login */}
                 <Col xs={24} sm={24} md={12} className="login-right">
+              
+                    <div className='label-login'>
+                    <h1>AutomateFull</h1>
+                    <p>É sempre  possível melhorar</p>
+                    <br />
+                    </div>
+                    <h2 >Olá, seja bem-vindo!</h2> 
                     <Form
                         name="login_form"
                         className="login-form"
