@@ -12,8 +12,8 @@ import { useNavigate } from "react-router-dom";
 import AuthUserStore from "../../store/auth.store";
 import { MaskEmail } from "../Dynamic/Form/MaskEmail";
 import MaskedInput from "antd-mask-input";
-import { useQueryClient } from "@tanstack/react-query";
-import { useSendEmail } from "../../hooks/api";
+// import { useQueryClient } from "@tanstack/react-query";
+// import { useSendEmail } from "../../hooks/api";
 
 export interface ISendEmail{
   name: string;
@@ -21,7 +21,7 @@ export interface ISendEmail{
   message: string;
 }
 const Login: React.FC = () => {
-  const queryClient = useQueryClient();
+  // const queryClient = useQueryClient();
   const { logIn } = AuthUserStore();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -48,21 +48,21 @@ const Login: React.FC = () => {
     setRegister(!register);
   };
 
-  const { mutate: postEmail } = useSendEmail({
-    retry: 2, // Tenta novamente 2 vezes antes de falhar
-    // staleTime: 5000, // 5 segundos antes de considerar os dados desatualizados
-    // cacheTime: 10000, // 10 segundos antes de remover os dados do cache
-    onSuccess: (data: any) => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-expect-error
-      queryClient.invalidateQueries("mercadoLivreWeb");
-      form.resetFields();
-    },
-    onError: (error: any) => {
-      const errorMessage = error.response?.data?.message;
-      message.error(errorMessage);
-    },
-  });
+  // const { mutate: postEmail } = useSendEmail({
+  //   retry: 2, // Tenta novamente 2 vezes antes de falhar
+  //   // staleTime: 5000, // 5 segundos antes de considerar os dados desatualizados
+  //   // cacheTime: 10000, // 10 segundos antes de remover os dados do cache
+  //   onSuccess: (data: any) => {
+  //     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //     //@ts-expect-error
+  //     queryClient.invalidateQueries("mercadoLivreWeb");
+  //     form.resetFields();
+  //   },
+  //   onError: (error: any) => {
+  //     const errorMessage = error.response?.data?.message;
+  //     message.error(errorMessage);
+  //   },
+  // });
   return (
     <div className="login-container">
       <Row justify="center" align="middle" className="login-content">
@@ -95,8 +95,8 @@ const Login: React.FC = () => {
             className="login-form"
             initialValues={{ remember: true }}
             form={form}
-            //onFinish={onFinish}
-            onFinish={(e) => console.log(e)}
+            onFinish={onFinish}
+            //onFinish={(e) => console.log(e)}
           >
             {/* <Form.Item
                             name="password"

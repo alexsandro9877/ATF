@@ -5,7 +5,8 @@ import { UserOutlined
  } from '@ant-design/icons';
 import './login.css';
 import { useNavigate } from 'react-router-dom';
-import AuthUserStore from '../../store/auth.store';
+import AuthUserStore from '../../../store/auth.store';
+
 
 const Login: React.FC = () => {
     const { logIn } = AuthUserStore();
