@@ -84,7 +84,7 @@ const Login: React.FC = () => {
             <p>É sempre possível melhorar</p>
             <br />
           </div>
-          {register ? (
+          {!register ? (
             <h2>Olá, seja bem-vindo!</h2>
           ) : (
             <h2>Informe seus dados, para contato!</h2>
