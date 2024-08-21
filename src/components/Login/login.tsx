@@ -109,7 +109,7 @@ const Login: React.FC = () => {
                             />
                         </Form.Item> */}
 
-            {register ? (
+            {!register ? (
               <>
                 <Form.Item
                   name="username"
