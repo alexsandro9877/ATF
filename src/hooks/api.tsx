@@ -7,6 +7,7 @@ import {
 } from "./useQuery";
 import { IUserCreated } from "../types/typeUserPost";
 import { IRequestApi } from "../components/Meli";
+import { ISendEmail } from "../components/Login/login";
 
 type UseGenericPostOptions<TData, TVariables> = UseMutationOptions<  TData,  unknown,  TVariables>;
 type UseGenericDeleteOptions<TData, TVariables> = UseMutationOptions<  TData,  unknown,  TVariables>;
@@ -105,6 +106,14 @@ export const useGetMercadoLivreWeb = (  options?: UseGenericPostOptions<IRequest
   return useGenericPost<IRequestApi, IRequestApi>(
     "/referenceId",
     "mercadoLivreWeb",
+    options
+  );
+};
+
+export const useSendEmail = (  options?: UseGenericPostOptions<ISendEmail, ISendEmail>) => {
+  return useGenericPost<ISendEmail, ISendEmail>(
+    "/send-email",
+    "email",
     options
   );
 };
