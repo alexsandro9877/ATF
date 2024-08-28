@@ -6,7 +6,7 @@ import {
   useGenericPut,
 } from "./useQuery";
 import { IUserCreated } from "../types/typeUserPost";
-import { IRequestApi } from "../components/Meli";
+// import { IRequestApi } from "../components/Meli";
 import { ISendEmail } from "../components/Login/login";
 
 type UseGenericPostOptions<TData, TVariables> = UseMutationOptions<  TData,  unknown,  TVariables>;
@@ -102,12 +102,28 @@ export const useDeleteSite = (  options?: UseGenericDeleteOptions<SiteData, Dele
 
 
 
-export const useGetMercadoLivreWeb = (  options?: UseGenericPostOptions<IRequestApi, IRequestApi>) => {
-  return useGenericPost<IRequestApi, IRequestApi>(
-    "/referenceId",
-    "mercadoLivreWeb",
-    options
-  );
+// export const useGetMercadoLivreWeb = (  options?: UseGenericPostOptions<IRequestApi, IRequestApi>) => {
+//   return useGenericPost<IRequestApi, IRequestApi>(
+//     "/referenceId",
+//     "mercadoLivreWeb",
+//     options
+//   );
+// };
+
+export const useGetPrd4Inclusao = () => {
+  return useGenericGet("/prd4/nfs/pendente/inclusao", "PRD4inclusao", {
+    retry: 5,
+    refetchOnWindowFocus: true,
+    ReloadOutlined: true,
+  });
+};
+
+export const useGetPrd4Pendente = () => {
+  return useGenericGet("/prd4/nfs/pendente", "PRD4Pendente", {
+    retry: 5,
+    refetchOnWindowFocus: true,
+    ReloadOutlined: true,
+  });
 };
 
 export const useSendEmail = (  options?: UseGenericPostOptions<ISendEmail, ISendEmail>) => {

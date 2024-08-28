@@ -8,16 +8,21 @@ import Error404 from '../components/error404';
 // import Principal from '../components/Dynamic/principal';
 import Unauthorized from '../components/unauthorized';
 import Login from '../components/Login/login';
-import App from '../components/App';
+// import App from '../components/App';
 import AccountPage from '../components/Account/accountPage';
 import CustomerPage from '../components/Customer/customerPage';
 import UserPage from '../components/User/UserPage';
 import SettingsPage from '../components/Settings/settingsPage';
 import AgendaPage from '../components/App/agenda';
-import UserMeli from '../components/Meli';
+// import Prd4MercadoLivre from '../components/Meli';
+import WebSite from '../components/Site';
+//import UserMeli from '../components/Meli';
+///import Prd4Pendencias from '../components/Meli/prd4Pendencias';
 
 const router = createBrowserRouter([
-  {path: "/",    element: (<PrivateRoute><App /></PrivateRoute>),//Elemento principal
+  {
+   // path: "/",    element: (<PrivateRoute><App /></PrivateRoute>),//Elemento principal
+    path: "/",    element: (<PrivateRoute><WebSite /></PrivateRoute>),//Elemento principal
     errorElement: <Error404 />,
     //Rotas privadas
     children: [
@@ -33,17 +38,17 @@ const router = createBrowserRouter([
         // {        path: "settings",           element: (          <PrivateRoute tela='/settings' role='admin'><>sd</>          </PrivateRoute>),},
         
         //Cliente
-        {        path: "userMeli",           element: (          <PrivateRoute tela='/userMeli' >            <UserMeli/>           </PrivateRoute>),},
+        {        path: "userMeli",           element: (          <PrivateRoute tela='/userMeli' >            <WebSite/>           </PrivateRoute>),},
         {        path: "customer",           element: (          <PrivateRoute tela='/customer' >            <CustomerPage/>           </PrivateRoute>),},
         //Conta
         {        path: "account",            element: (          <PrivateRoute tela='/account' >            <AccountPage/>            </PrivateRoute>),},
         //Parceria
-         {        path: "partnership",        element: (          <PrivateRoute tela='/partnership' >           <AgendaPage/>               </PrivateRoute>),},
+         {        path: "partnership",        element: (         <PrivateRoute tela='/partnership' >           <AgendaPage/>               </PrivateRoute>),},
         //  //Teste
-        {        path: "/settings",         element: (          <PrivateRoute tela='/settings' >              <SettingsPage/>             </PrivateRoute>),},
+        {        path: "/settings",         element: (           <PrivateRoute tela='/settings' >              <SettingsPage/>             </PrivateRoute>),},
         // // Para teste
-        {        path: "user",               element: (          <PrivateRoute tela='/user' >         <UserPage/>     </PrivateRoute>),},
-        {        path: "*",                  element:            <Error404 />,      },    
+        {        path: "user",               element: (          <PrivateRoute tela='/user' >             <UserPage/>     </PrivateRoute>),},
+        {        path: "*",                  element:            <Error404 />,      },     
         {        path: "unauthorized",       element:            <Unauthorized />,      },   
          
     ],
