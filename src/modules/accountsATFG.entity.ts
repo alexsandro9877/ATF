@@ -1,6 +1,8 @@
+import { action, makeObservable, observable } from 'mobx';
+import {api} from '../axios/axios'
 export interface IAccount {
   key?: number | undefined;
-  id?: number;
+  id?: string;
   descricao: string;
   valor: number;
   operacao: number; 
@@ -25,49 +27,91 @@ export interface IResumo {
 export class CAccount {
   public resumo: IResumo[];
   public account: IAccount[] = [];
-  private nextId: number = 1;
-  private nextKey: number = 1;
+
 
   constructor() {
     this.resumo = [{entrada: 0,  saida: 0, total : 0}]
-    this.account = [];
+    this.account = []
+    makeObservable(this, {
+      account :observable,
+      fetchAllAccount: action,
+      addAccount: action
+  });
   }
 
-  public addAccount(item: Omit<IAccount, "id">): void {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+
+  async fetchAllAccount(): Promise<void> {
+    try {
+        const response = await api.get(`/financeiro/all`);
+        this.account = response.data;
+    } catch (error) {
+        this.account = [];
+        console.error("Error fetching account: ", error);
+    }
+}
+
+async addAccount(item: Omit<IAccount, "id">): Promise<void> {
+  try {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-expect-error
-    const newItem = { ...item, id: this.nextId++, key: this.nextKey++ ,parc_pag: ((item.parc_ate - item.parc_de) * item.valor) };
-    this.account = [...this.account, newItem]; 
+      const response = await api.post(`/financeiro`, { ...item,parc_pag: ((item.parc_ate - item.parc_de) * item.valor) });
+      const newAccount = { ...response.data};
+      this.account.push(newAccount);
+      this.fetchAllAccount()
+  } catch (error) {
+      console.error("Error adding account: ", error);
   }
+}
+ 
 
-  public addAccountClone(item: Omit<IAccount, "id">[]): void {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      
-    item.map((e)=>{
-      const newItem = { ...e, id: this.nextId++, key: this.nextKey++ }
-      this.account = [...this.account, newItem]; 
+  async addAccountClone(item: Omit<IAccount, "id">[]): Promise<void>{      
+    item.map(async (e)=>{
+      try {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-expect-error
+      const response = await api.post(`/financeiro`, { ...e,parc_pag: ((e.parc_ate - e.parc_de) * e.valor) });
+      const newAccount = { ...response.data};
+      this.account.push(newAccount);
+    } catch (error) {
+      console.error("Error adding account: ", error);
+  }
     })
     console.log(item)
 }
 
-  public deleteAccount(id: number): void {
-    this.account = this.account.filter((e) => e.id !== id);
+async deleteAccount(id: string): Promise<void> {
+  try {
+      await api.delete('/financeiro/', { params: { id } });
+      this.account = this.account.filter(e => e.id !== id);
+  } catch (error) {
+      console.error("Error deleting account: ", error);
   }
+}
 
-  public updateAccount(item: IAccount): void {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+ 
+ 
+  async updateAccount(item: IAccount): Promise<void> {
+    try {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-expect-error
       const newAttAccount = {...item,id: item.id, parc_pag:  ((item.parc_ate - item.parc_de) * item.valor) }
-      console.log(newAttAccount)
-      this.account = this.account.filter((e) => e.id !== item.id);
-      this.account = [...this.account, newAttAccount]; 
-  }
- 
-  public updateAccountPag(id: number): void {
+       const response  = await api.put(`/financeiro`, newAttAccount);        
+       const index = this.account.findIndex(id => id === id);
+       if (index !== -1) {
+           this.account[index] = { ...response.data };
+       }
+    } catch (error) {
+        console.error("Error editar account: ", error);
+    }
+}
+
+
+  public updateAccountPag(id: string): void {
       const conta = this.account.filter((e) => e.id === id)[0];
     if (conta && conta.classe) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-expect-error
+      
       const newAttAccount = {...conta, parc_pag: (conta.parc_ate - conta.parc_de) * conta.valor }
       this.account = this.account.filter((e) => e.id !== id);
       this.account = [...this.account, newAttAccount]; 
@@ -101,9 +145,9 @@ export class CAccount {
   
   }
 
-  public getAccount(): IAccount[] {
-    return [...this.account];
-  }
+  getAllAccount(): IAccount[] {
+    return this.account;
+}
   public getResumo(): IResumo[] {
     return [...this.resumo];
   }

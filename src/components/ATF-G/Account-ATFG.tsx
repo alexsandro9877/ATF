@@ -129,10 +129,10 @@ export const agruparPorPropriedade = (arr: any[], propriedade: string) => {
 };
 
 const Fianceiro = () => {
-  const { account, deleteAccount, getAccountTotal, resumo, addAccountClone } =
+  const { account, deleteAccount, getAccountTotal, resumo, addAccountClone , fetchAccount} =
     accountStore();
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [editModalId, setEditModalId] = useState<number | null>(null);
+  const [editModalId, setEditModalId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [dtaClone, setDtaClone] = useState<string | null>(null);
   const [agrupadoPorMes, setAgrupadoPorMes] = useState<string>(dayjs().format("MM/YYYY"));
@@ -175,7 +175,7 @@ const Fianceiro = () => {
     setClone(true);
     ///Clonando
     const commonItems = account.filter((item2) =>
-      selectedRowKeys.some((item1) => item2.id === Number(item1))
+      selectedRowKeys.some((item1) => item2.id === item1)
     );
 
     ///Rescrevendo
@@ -207,16 +207,17 @@ const Fianceiro = () => {
   };
 
   // Modal Handlers
-  const showModal = (id?: number) => {
+  const showModal = (id?: string) => {
     setIsModalVisible(true);
     if (id) setEditModalId(id);
   };
 
   useEffect(() => {
      getAccountTotal(agrupadoPorMes ? String(agrupadoPorMes) : "");
+     fetchAccount();
   //   console.log(agrupadoPorMes)
   
-  }, [editModalId, account, isModalVisible, agrupadoPorMes]);
+  }, [isModalVisible, agrupadoPorMes, getAccountTotal, fetchAccount]);
 
   const handleCancelModal = () => {
     setIsModalVisible(false);
@@ -224,18 +225,19 @@ const Fianceiro = () => {
   };
 
   const dataSource = Array.isArray(account)
-    ? account
-        .map((item: IAccount) => ({
-          ...item,
-          key: item.id,
-          description: item.observacao,
-        }))
-        .filter((item: IAccount) =>
-          `${item.data_mes.toLowerCase()}`.includes(
-            agrupadoPorMes.toLowerCase()
-          )
+  ? account
+      .map((item: IAccount) => ({
+        ...item,
+        key: item.key,
+        description: item.observacao,
+      }))
+      .filter((item: IAccount) =>
+        (item.data_mes ? item.data_mes.toLowerCase() : '').includes(
+          agrupadoPorMes.toLowerCase()
         )
-    : [];
+      )
+  : [];
+
 
   const exportToExcel = () => {
     const dataToExport = dataSource.map((item) => ({
@@ -399,7 +401,7 @@ const Fianceiro = () => {
       render: (_: any, record: IAccount) => (
         <Space size="middle">
           <Button
-            onClick={() => deleteAccount(Number(record.id))}
+            onClick={() => deleteAccount(String(record.id))}
             icon={<DeleteOutlined />}
             type="dashed"
           />
@@ -430,11 +432,28 @@ const Fianceiro = () => {
     setSearchTerm(value);
   };
 
-  const filteredItems = dataSource.filter((item: IAccount) =>
-    `${item.descricao.toLowerCase()} ${item.descricao.toLowerCase()}`.includes(
-      searchTerm.toLowerCase()
-    )
+  const filteredItems = dataSource.filter((item: {
+    //key?: string;
+    description?: string;
+    id?: string;
+    descricao: string;
+    valor: number;
+    operacao: number;
+    centro_de_custo?: string;
+    type?: string;
+    status?: boolean;
+    classe?: string;
+    parc_de?: number;
+    parc_ate?: number;
+    parc_pag?: number;
+    data_mes?: string;
+    data_pag?: string;
+    observacao?: string;
+  }) =>
+    `${item.descricao?.toLowerCase() || ''}`.includes(searchTerm.toLowerCase())
   );
+  
+  
 
   const hasSelected = selectedRowKeys.length > 0;
 
@@ -455,7 +474,7 @@ const Fianceiro = () => {
                         placeholder="Data mes resferencia"
                         
                       />
-              <Button onClick={() => showModal(0)}>
+              <Button onClick={() => showModal('')}>
                 <PlusOutlined title="Adicionar" /> Adicionar
               </Button>
 

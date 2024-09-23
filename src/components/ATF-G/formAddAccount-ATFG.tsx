@@ -20,7 +20,7 @@ const { Option } = Select;
 import dayjs from 'dayjs';
 
 interface IEditProps {
-  id?: number | null;
+  id?: string | null;
   onClose: () => void;
 }
 

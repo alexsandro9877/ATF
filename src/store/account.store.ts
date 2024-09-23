@@ -19,6 +19,7 @@ const accountStore = create<AccountState>((set) => ({
     },
     addAccount: async (account) => {
         await cAccount.addAccount(account);
+        await cAccount.fetchAllAccount();
         set({ account: cAccount.getAllAccount() });
     },
     deleteAccount: async (id) => {
