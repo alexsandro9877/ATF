@@ -2,7 +2,7 @@ import React from 'react';
 import { Descriptions, Tag } from 'antd';
 import AuthUserStore from '../../store/auth.store';
 
-import DynamicCard from '../Dynamic/Card/DynamicCardProps ';
+import DynamicCard from '../Dynamic/Card/DynamicCardProps';
 
 const SettingsPage: React.FC = () => {
   const { userAut } = AuthUserStore();

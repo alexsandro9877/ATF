@@ -3,7 +3,7 @@ import { Layout, Space, Button, Dropdown, Menu } from 'antd';
 import { PlusOutlined, DownloadOutlined, UserOutlined, EllipsisOutlined } from '@ant-design/icons';
 import DynamicModal from '../Dynamic/Modal/DynamicModalProps';
 import DynamicButton from '../Dynamic/Button/DynamicButtonProps';
-import DynamicCard from '../Dynamic/Card/DynamicCardProps ';
+import DynamicCard from '../Dynamic/Card/DynamicCardProps';
 import UserList from './UserListProps';
 import UserCreateEdit from './UserForm';
 import AuthUserStore from '../../store/auth.store';

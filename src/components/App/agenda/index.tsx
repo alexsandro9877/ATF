@@ -1,6 +1,6 @@
 import { Col, Row } from 'antd'
 
-import DynamicCard from '../../Dynamic/Card/DynamicCardProps '
+import DynamicCard from '../../Dynamic/Card/DynamicCardProps'
 import AgendaForm from './agendaForm'
 import MyComponent from './disableDate'
 

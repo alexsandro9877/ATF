@@ -14,7 +14,7 @@ import DynamicButton from "../../Dynamic/Button/DynamicButtonProps";
 
 import { CreateSitesProps } from "../../../types";
 import DynamicModal from "../../Dynamic/Modal/DynamicModalProps";
-import DynamicCard from "../../Dynamic/Card/DynamicCardProps ";
+import DynamicCard from "../../Dynamic/Card/DynamicCardProps";
 import CreateSiteForm from "./CreateEditeSiteForm";
 
 const CreateSites = () => {

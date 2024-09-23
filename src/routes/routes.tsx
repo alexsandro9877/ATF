@@ -8,7 +8,7 @@ import Error404 from '../components/error404';
 // import Principal from '../components/Dynamic/principal';
 import Unauthorized from '../components/unauthorized';
 import Login from '../components/Login/login';
-// import App from '../components/App';
+import App from '../components/App';
 import AccountPage from '../components/Account/accountPage';
 import CustomerPage from '../components/Customer/customerPage';
 import UserPage from '../components/User/UserPage';
@@ -21,8 +21,8 @@ import WebSite from '../components/Site';
 
 const router = createBrowserRouter([
   {
-   // path: "/",    element: (<PrivateRoute><App /></PrivateRoute>),//Elemento principal
-    path: "/",    element: (<PrivateRoute><WebSite /></PrivateRoute>),//Elemento principal
+    path: "/",    element: (<PrivateRoute><App /></PrivateRoute>),//Elemento principal
+  //  path: "/",    element: (<PrivateRoute><WebSite /></PrivateRoute>),//Elemento principal
     errorElement: <Error404 />,
     //Rotas privadas
     children: [

@@ -95,7 +95,7 @@ return (
     scrollableTarget="scrollableDiv"
   >
       <Search
-        placeholder="Buscar nome de conta ou nome cliente"
+        placeholder="Buscar descrição da conta"
         value={searchTerm}
         onChange={(e) => debounceSearch(e.target.value)}
         style={{ marginBottom: 16 }}

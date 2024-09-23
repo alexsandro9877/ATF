@@ -1,6 +1,7 @@
 import { Button, Col, Row,Typography } from 'antd'
 
 const { Title,Paragraph } = Typography;
+
 const Seguranca = () => {
   return (
 <>

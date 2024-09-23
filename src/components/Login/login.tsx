@@ -189,7 +189,7 @@ const Login: React.FC = () => {
                 className="sign-up-button"
                 onClick={onSingIn}
               >
-                {register ? "Inscrever-se" : "Voltar"}
+                {!register ? "Inscrever-se" : "Voltar"}
               </Button>
             </Form.Item>
           </Form>

@@ -1,31 +1,65 @@
-import { Button,  Col, Row, Typography } from 'antd'
+import { Col, Divider, Row, Typography, Image } from "antd";
+import { IPrincipal } from "./type";
+import DynamicCard from "../Dynamic/Card/DynamicCardProps";
 
-const { Title, Paragraph } = Typography;
+const { Paragraph } = Typography;
 
-const Principal = () => {
-  return (
-   <>
-       {/* Seção Principal */}
-       <Row gutter={[6, 6]} style={{ padding:'0 16px'}} align="stretch">
-          <Col xs={24} md={12}>
-            <Title>Serviços de eletricista</Title>
-            <Paragraph>
-              Nossos eletricistas oferecem excelente serviço e suporte a preços competitivos.
-              Todo o nosso trabalho é garantido e está em conformidade com os mais altos padrões da indústria.
-            </Paragraph>
-            <Button type="primary" size="large">FAÇA UM ORÇAMENTO GRÁTIS</Button>
-          </Col>
-          <Col xs={24} md={12}>
-            {/* <img
-              
-              src="https://cdn.pixabay.com/photo/2017/09/19/22/10/tool-2766835_640.jpg"
-              alt="Eletricista"
-              style={{ width: "50%", borderRadius:'8px' }}
-            /> */}
-          </Col>
-        </Row>
-   </>
-  )
+interface IProps {
+  data: IPrincipal[];
+  loadingData: boolean;
 }
 
-export default Principal
+const Principal: React.FC<IProps> = ({ data, loadingData }) => {
+  console.log(loadingData);
+
+  return (
+    <Row gutter={[16, 16]} align="middle" style={{ padding: "0 8px" }}>
+      
+      <Col span={24} style={{ border: '2px solid black' }}>
+        <p>Nossos projetos</p>
+      </Col>
+
+      {/* Dynamic Cards */}
+      {data.map((principal, index) => (
+        <Col key={index} md={12} lg={24} flex={'auto'}>
+          <DynamicCard
+            title={principal.title}
+            content={
+              <Row gutter={[16, 16]}>
+               
+                <Col 
+                  flex="1" 
+                  style={{ border: "", margin: "5px", padding: "10px" }}
+                >
+                  <Paragraph>
+                  <Divider orientation="left">{principal.description}</Divider>
+                    {principal.subDescription}
+                    </Paragraph>
+                  <ul>
+                    {Array(6).fill(null).map((_, i) => (
+                      <li key={i}>valor</li>
+                    ))}
+                  </ul>
+                </Col>
+                <Col 
+                  flex="1" 
+                  style={{ border: "", margin: "5px", padding: "10px", textAlign: 'center' }}
+                >
+                  <Image
+                    src={principal.imageLogo}
+                    alt={principal.title}
+                    width={300}  
+                    height={200} 
+                    style={{ objectFit: "cover" }} 
+                  />
+                </Col>
+              </Row>
+            }
+          />
+        </Col>
+      ))}
+    </Row>
+  );
+};
+
+export default Principal;

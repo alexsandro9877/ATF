@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Dropdown, Layout, Menu, Space } from 'antd'
 import { Content } from 'antd/es/layout/layout'
-import DynamicCard from '../Dynamic/Card/DynamicCardProps '
+import DynamicCard from '../Dynamic/Card/DynamicCardProps'
 import { DownloadOutlined, EllipsisOutlined, PlusOutlined,  ContainerOutlined } from '@ant-design/icons'
 import DynamicButton from '../Dynamic/Button/DynamicButtonProps'
 import DynamicModal from '../Dynamic/Modal/DynamicModalProps'
