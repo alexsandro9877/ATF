@@ -68,7 +68,8 @@ export const agruparPorTypeEDescricaoESomarValor = (arr: IAccount[]) => {
 
   // Converte o objeto resultante de volta para um array
   
-  //@ts-ignore
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-expect-error
   return Object.entries(agrupado).flatMap(([type, descricaoGroup]) =>
     Object.values(descricaoGroup).map((item) => ({
       type: item.type,
@@ -119,14 +120,15 @@ export const agruparPorPropriedade = (arr: any[], propriedade: string) => {
   }, {} as { AGP: string[] });
 
   // Mapeia para o formato desejado
-  //@ts-ignore
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-expect-error
   return agrupado["AGP"].map((item) => ({
     text: item,
     value: item,
   }));
 };
 
-const PrincipalTest = () => {
+const Fianceiro = () => {
   const { account, deleteAccount, getAccountTotal, resumo, addAccountClone } =
     accountStore();
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -324,7 +326,8 @@ const PrincipalTest = () => {
       // onFilter: (value: string, record: IAccount) => record.type?.indexOf(value as string) === 0,
       onFilter: (value: string, record: IAccount) =>
         record.type?.includes(value as string),
-      //@ts-ignore
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-expect-error
       sorter: (a, b) => a.type.length - b.type.length,
       sortOrder: sortedInfo.columnKey === "type" ? sortedInfo.order : null,
       ellipsis: true,
@@ -621,7 +624,8 @@ const PrincipalTest = () => {
                   {clone && (
                     <DatePicker
                       picker="month"
-                      //@ts-ignore
+                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-expect-error
                       onChange={(e) => setDtaClone(e)}
                       format="MM/YYYY"
                       style={{ width: "100%" }} // Full width on smaller screens
@@ -652,7 +656,8 @@ const PrincipalTest = () => {
               showSorterTooltip={{ target: "sorter-icon" }}
               onChange={handleChange}
               rowKey="id"
-              //@ts-ignore
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-expect-error
               columns={columns}
               size="small"
               expandable={{
@@ -709,4 +714,4 @@ const PrincipalTest = () => {
   );
 };
 
-export default PrincipalTest;
+export default Fianceiro;

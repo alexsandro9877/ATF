@@ -40,6 +40,7 @@ const menuItems = [
   { label: 'Dashboard', key: '/dashboard', icon: <QuestionOutlined /> },
   { label: 'Teste 404', key: '/404', icon: <QuestionOutlined /> },
   { label: 'Parcerias', key: '/partnership', icon: <QuestionOutlined /> },
+  { label: 'Financeiro', key: '/financeiro', icon: <QuestionOutlined /> },
 ];
 
 const App: React.FC = () => {

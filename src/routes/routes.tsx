@@ -16,6 +16,7 @@ import SettingsPage from '../components/Settings/settingsPage';
 import AgendaPage from '../components/App/agenda';
 // import Prd4MercadoLivre from '../components/Meli';
 import WebSite from '../components/Site';
+import Fianceiro from '../components/ATF-G/Account-ATFG';
 //import UserMeli from '../components/Meli';
 ///import Prd4Pendencias from '../components/Meli/prd4Pendencias';
 
@@ -39,6 +40,7 @@ const router = createBrowserRouter([
         
         //Cliente
         {        path: "userMeli",           element: (          <PrivateRoute tela='/userMeli' >            <WebSite/>           </PrivateRoute>),},
+        {        path: "financeiro",           element: (          <PrivateRoute tela='/financeiro' >            <Fianceiro/>           </PrivateRoute>),},
         {        path: "customer",           element: (          <PrivateRoute tela='/customer' >            <CustomerPage/>           </PrivateRoute>),},
         //Conta
         {        path: "account",            element: (          <PrivateRoute tela='/account' >            <AccountPage/>            </PrivateRoute>),},
